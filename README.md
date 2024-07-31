@@ -41,3 +41,26 @@
 
 # 5º - Componente Button
 - Como iremos utilizar o estilo do botão várias vezes, é prático criar um componente para ele
+
+# 6º - Formulário com React Hook Form
+- Para produzir nosso Formulário iremos utilizar a biblioteca React Hook Form
+    yarn add react-hook-form
+
+- Para a validação dos dados iremos utilizar assim como no Back-End o YUP
+    yarn add @hookform/resolvers yup
+
+- Importamos a configuração onde iremos utilizar, no caso no Login
+    import { useForm } from "react-hook-form"
+    import { yupResolver } from "@hookform/resolvers/yup"
+    import * as yup from "yup"
+
+- E vamos agora criar a validação dos campos que queremos validar
+
+- Agora vamos tratar erros, caso um email não seja válido, não envie senha, etc...
+    Podemos fazer isso direto na validação dos dados no Yup com mensagens dentro do ()
+
+- E para mostrar isso na tela pro usuário adiciono embaixo do input em (p)
+    <{errors?.email?.message}>
+    <{errors?.password?.message}>
+
+# 

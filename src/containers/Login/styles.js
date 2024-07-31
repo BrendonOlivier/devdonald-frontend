@@ -6,6 +6,10 @@ export const Container = styled.div`
     display: flex;
     height: 100vh;
     width: 100vw;
+
+    @media (max-width: 430px) {
+        flex-direction: column;
+    }
 `;
 
 export const LeftContainer = styled.div`
@@ -23,6 +27,14 @@ export const LeftContainer = styled.div`
 
     img {
         width: 70%;
+
+        @media (max-width: 430px) {
+            width: 60%;
+    }
+    }
+
+    @media (max-width: 430px) {
+        max-width: 100%;
     }
 `;
 
@@ -48,6 +60,10 @@ export const RightContainer = styled.div`
             text-decoration: underline;
         }
     }
+
+    @media (max-width: 430px) {
+        max-width: 100%;
+    }
 `;
 
 export const Tittle = styled.h2`
@@ -60,6 +76,10 @@ export const Tittle = styled.h2`
     span {
         color: #9758a6;
         font-family: "Road Rage", sans-serif;
+    }
+
+    @media (max-width: 430px) {
+        font-size: 30px;
     }
 `;
 
@@ -84,11 +104,23 @@ export const InputContainer = styled.div`
         height: 52px;
         border-radius: 5px;
         padding: 0 16px;
+
+        @media (max-width: 430px) {
+            height: 40px;
+        }
     }
 
     label {
         font-size: 18px;
         font-weight: 600;
         color: #fff;
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 80%;
+        color: #cf3057;
+        font-weight: 600;
+        height: 10px;
     }
 `;

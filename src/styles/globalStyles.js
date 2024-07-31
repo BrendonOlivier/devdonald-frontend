@@ -11,7 +11,7 @@ const globalStyles = createGlobalStyle`
         font-style: normal;
     }
 
-    button {
+    button, a {
         cursor: pointer;
     }
 `;
