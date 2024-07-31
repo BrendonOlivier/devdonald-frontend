@@ -26,4 +26,12 @@
 - Agora vamos criar o arquivo de configuração do Prettier
     .prettierrc.json
 
-#
+# 3º - Estilos Globais com Styled-Components
+- Instalando o styled-components
+    yarn add styled-components
+
+- E montamos nosso arquivo de Estilos Globais
+    globalStyles.js
+
+- E importamos no nosso 
+    main.jsx
