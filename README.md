@@ -74,3 +74,16 @@
     import { api } from '../../services/api';
 
 - E enviar os dados para o Back-End, mas para enviar precisaremos da próxima etapa...
+
+# 8º - Resolvendo erro de conexão com CORS - BACK END
+- Confgurar o nosso Back-End com o CORS quem vai poder ter acesso ou alterar os dados - NO BACK END
+    yarn add cors
+    
+- Importamos no nosso arquivo 'app.js'
+    import cors from 'cors'
+
+- E liberamos no nosso contructor
+    this.app.use(cors())
+    aqui no caso estamos liberados para todos
+
+- E assim já temos acesso as dados do BackEnd
