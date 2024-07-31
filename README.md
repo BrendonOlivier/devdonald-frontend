@@ -87,3 +87,21 @@
     aqui no caso estamos liberados para todos
 
 - E assim já temos acesso as dados do BackEnd
+
+# 9º - Personalizando notificações com React Toastfy
+- Para um melhor feedback para o usuário iremos usar a biblioteca React Toastify
+    yarn add react-toastify
+
+- Importamos a config de estilo do Toastfy de forma global
+    import 'react-toastify/dist/ReactToastify.css'
+
+- Importamos o 'toast' no nosso Login
+    import { toast } from 'react-toastify'
+
+- E agora precisamos importar o ToastContainer no nosso 'main.jsx'
+    import { ToastContainer } from 'react-toastify'
+
+- E aplicamos no nosso 'root'
+    >ToastContainer<
+
+#

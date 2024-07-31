@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { api } from '../../services/api';
+import { toast } from 'react-toastify'
 
 import { Container, LeftContainer, RightContainer, Tittle, Form, InputContainer } from "./styles";
 import { Button } from '../../components/Button';
@@ -24,12 +25,19 @@ export function Login() {
         resolver: yupResolver(schema),
     })
 
-    // Enviando os dados para o BackEnd
-    const onSubmit = (data) => {
-        api.post('/session', {
-            email: data.email,
-            password: data.password
-        });
+    // Enviando os dados para o BackEnd, e dando um feedback com o React-Toastfy
+    const onSubmit = async (data) => {
+        const response = await toast.promise(
+            api.post('/session', {
+                email: data.email,
+                password: data.password
+            }),
+            {
+                pending: 'Verificando seus dados...',
+                success: 'Seja Bem-vindo(a) 🍔',
+                error: 'Email ou Senha incorretos ❌'
+            },
+        )
     };
 
     return (
