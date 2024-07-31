@@ -126,3 +126,29 @@
 
 - Vamos tratar erros pro usuário no nosso cadastro utilizando o
     try + catch
+
+# 12º - Navegando entre as rotas
+- Para navegarmos com o React Router Dom utilizarei o Link e o Navigate
+
+- Começando pelo Link no lugar dos (a)
+
+- Para estilizar o Link do React Router Dom, eu importo ele no Style
+    import { Link as ReactLink } from "react-router-dom"
+
+- E estilizo ele dessa forma :
+    export const Link = styled(ReactLink)``
+
+- E para fazer navegar para uma rota, de login para o cadastro, exemplo :
+    <Link to="/cadastro">Clique aqui.</Link>
+
+- Agora o usuário fez login, e quero redirecionar ele para a HOME, ai uso o Navigate
+    importamos ele no nosso Login
+    import { useNavigate } from 'react-router-dom'
+
+- Crio a função :
+    const navigate = useNavigate()
+
+- E coloco a config com o 'setTimeout' para depois de 1.2 segundos durante o feedback do Totify eu direcionar o usuário para a
+    HOME
+
+- E por fim fazemos o mesmo com o Cadastro.
