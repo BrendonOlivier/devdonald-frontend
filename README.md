@@ -63,4 +63,14 @@
     <{errors?.email?.message}>
     <{errors?.password?.message}>
 
-# 
+# 7º - Conectando API com o Frontend
+- Para conectar nosso Front com o Back-End Dev Donald iremos utilizar a biblioteca Axios
+    yarn add axios
+
+- Nossa pasta 'services' que ficará encarregada das nossas conexões com o Back-End
+    criamos o arquivo 'api.js'
+
+- Importamos nossa conexão onde iremos usar, no caso no Login
+    import { api } from '../../services/api';
+
+- E enviar os dados para o Back-End, mas para enviar precisaremos da próxima etapa...

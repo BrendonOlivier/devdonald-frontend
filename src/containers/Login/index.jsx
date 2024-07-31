@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { api } from '../../services/api';
 
 import { Container, LeftContainer, RightContainer, Tittle, Form, InputContainer } from "./styles";
 import { Button } from '../../components/Button';
@@ -22,7 +23,14 @@ export function Login() {
     } = useForm({
         resolver: yupResolver(schema),
     })
-    const onSubmit = (data) => console.log(data)
+
+    // Enviando os dados para o BackEnd
+    const onSubmit = (data) => {
+        api.post('/session', {
+            email: data.email,
+            password: data.password
+        });
+    };
 
     return (
         <Container>
