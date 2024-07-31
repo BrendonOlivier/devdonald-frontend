@@ -6,6 +6,7 @@ const globalStyles = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         outline: none;
+        font-family: "Merriweather", serif;
     }
 
     button {
