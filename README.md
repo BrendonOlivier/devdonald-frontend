@@ -104,4 +104,21 @@
 - E aplicamos no nosso 'root'
     >ToastContainer<
 
+# 10º - Navegando entre rotas com React-Router-Dom
+- Para navegarmos entre rotas, no react utilizamos a biblioteca React-Router-Dom
+    yarn add react-router-dom
+
+- Vamos criar o nosso arquivo de ROTAS
+    'index.jsx'
+
+- Irei utilizar o :
+    import { createBrowserRouter } from 'react-router-dom';
+
+- No nosso 'main.jsx' irei fazer as mudanças, importando os :
+    import { RouterProvider } from 'react-router-dom'
+    import { router } from './routes'
+
+- Excluo o Login, e utilizo o :
+    RouterProvider router={router}
+
 #
