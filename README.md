@@ -38,3 +38,6 @@
 
 # 4º - Iniciando a tela de Login
 - Adionar os elementos e estilizar
+
+# 5º - Componente Button
+- Como iremos utilizar o estilo do botão várias vezes, é prático criar um componente para ele

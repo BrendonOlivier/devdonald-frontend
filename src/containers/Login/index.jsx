@@ -1,4 +1,5 @@
-import { Container, LeftContainer, RightContainer, Tittle, Form, InputContainer, Button } from "./styles"
+import { Container, LeftContainer, RightContainer, Tittle, Form, InputContainer } from "./styles"
+import { Button } from '../../components/Button'
 import Logo from '../../assets/Logo-Main.png'
 
 export function Login() {
