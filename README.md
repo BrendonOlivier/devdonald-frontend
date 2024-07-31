@@ -124,4 +124,5 @@
 # 11º - Criando a tela de Registro de Usuário
 - Vamos criar nossa tela de cadastro de usuário
 
-#
+- Vamos tratar erros pro usuário no nosso cadastro utilizando o
+    try + catch
