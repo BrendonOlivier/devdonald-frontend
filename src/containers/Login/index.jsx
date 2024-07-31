@@ -30,25 +30,30 @@ export function Login() {
 
     // Enviando os dados para o BackEnd, e dando um feedback com o React-Toastfy
     const onSubmit = async (data) => {
-        const response = await toast.promise(
-            api.post('/session', {
+        try {
+            const { status } = await api.post('/session', {
                 email: data.email,
                 password: data.password
-            }),
-            {
-                pending: 'Verificando seus dados...',
-                success: {
-                    render() {
-                        setTimeout(() => {
-                            navigate('/');
-                        }, 1200)
-
-                        return 'Seja Bem-vindo(a) 🍔'
-                    }
-                },
-                error: 'Email ou Senha incorretos ❌'
             },
-        )
+                {
+                    validateStatus: () => true
+                },
+            );
+
+            if (status === 200 || status === 201) {
+                setTimeout(() => {
+                    navigate('/')
+                }, 1200);
+
+                toast.success('Seja Bem-vindo(a) 🍔');
+            } else if (status === 400) {
+                toast.error('🛑 Verifique Email ou Senha se estão corretos');
+            } else {
+                throw new Error();
+            }
+        } catch (error) {
+            toast.error('❌ Falha no sistema! Tente novamente');
+        }
     };
 
     return (
