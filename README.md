@@ -121,4 +121,7 @@
 - Excluo o Login, e utilizo o :
     RouterProvider router={router}
 
+# 11º - Criando a tela de Registro de Usuário
+- Vamos criar nossa tela de cadastro de usuário
+
 #
