@@ -222,3 +222,11 @@
 - Para pegarmos as nossas categorias da API precisamos usar método GET assim como é no backEnd
 
 - Porém assim como o BackEnd precisar tratar com os Token...
+
+# 17º - Adicionando Token JWT as chamadadas a API
+- Vamos utilizar uma ferramenta do Axios para fazer essa busca do Token, a ferramenta é o 
+    intercerptors
+
+- No nosso 'services' no arquivo 'api.js' vamos fazer essa busca dentro do localStorage e pega apenas o Token :
+
+#
