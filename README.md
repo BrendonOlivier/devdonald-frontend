@@ -152,3 +152,39 @@
     HOME
 
 - E por fim fazemos o mesmo com o Cadastro.
+
+# 13º - React Hook - useContext
+- Criamos um arquivo nos nossos 'hooks'
+    UserContext.js
+
+- Importo as nossas configurações :
+    import React, { createContext, useContext, useState  } from 'react'
+
+- Monto a váriavel principal   
+    const UserContext = createContext({})
+        e faço todas a config
+
+- Após configurar, tenho que passar pro nosso arquivo 'main.jsx' o UserProvider, e cubro ele por nossas rotas e estilos.
+    import { UserProvider } from './hooks/UserContext'
+
+- Feito isso, passo para as nossas páginas no caso por enquanto o Login :
+    const { putUserData } = useUser();
+
+- E caso dê certo o Login (status 200 || 201) gravo os dados do usuário no nosso Context
+    putUserData(response.data)
+
+# 14º - Salvando os dados no Local Storage (Navedaor)
+- Para salvarmos os dados para caso eu reinicei a página e consiga recupear ou até não perder os dados, irei utilizar o :
+    useEffect
+
+- Importo ele no nosso 'UserContext.jsx' junto com as outras importações
+    import React, { createContext, useContext, useState, useEffect } from 'react'
+
+- Na nossa função 'putUserData' coloco para guardar os dados lo localStorage :
+    await localStorage.setItem('devdonald:userData', JSON.stringify(userInfo))
+
+- E monto o nosso 'useEffect' primeiro pegando os dados :
+    const clientInfo = await localStorage.getItem('devdonald:userData')
+
+- E por ultimo faço um 'IF' que se tiver algum dado eu coloco ele no nosso CONTEXT
+    if (clientInfo) { setUserData(JSON.parse(clientInfo)) }

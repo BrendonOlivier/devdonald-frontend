@@ -2,8 +2,10 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from 'react-router-dom';
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+
+import { useUser } from '../../hooks/UserContext';
 import { api } from '../../services/api';
-import { toast } from 'react-toastify'
+import { toast } from 'react-toastify';
 
 import { Container, LeftContainer, RightContainer, Tittle, Form, InputContainer, Link } from "./styles";
 import { Button } from '../../components/Button';
@@ -11,6 +13,7 @@ import Logo from '../../assets/Logo-Main.png';
 
 export function Login() {
     const navigate = useNavigate(); // Função para redirecionar o usuário
+    const { putUserData } = useUser(); // Pegando os dados do children la no 'UserContext'
 
     // Validação os campos para o formulário
     const schema = yup
@@ -31,7 +34,7 @@ export function Login() {
     // Enviando os dados para o BackEnd, e dando um feedback com o React-Toastfy
     const onSubmit = async (data) => {
         try {
-            const { status } = await api.post('/session', {
+            const response = await api.post('/session', {
                 email: data.email,
                 password: data.password
             },
@@ -40,13 +43,15 @@ export function Login() {
                 },
             );
 
-            if (status === 200 || status === 201) {
+            if (response.status === 200 || response.status === 201) {
+                putUserData(response.data); // Armazena os dados do usuário 
+
                 setTimeout(() => {
                     navigate('/')
                 }, 1200);
 
                 toast.success('Seja Bem-vindo(a) 🍔');
-            } else if (status === 400) {
+            } else if (response.status === 400) {
                 toast.error('🛑 Verifique Email ou Senha se estão corretos');
             } else {
                 throw new Error();
@@ -54,6 +59,8 @@ export function Login() {
         } catch (error) {
             toast.error('❌ Falha no sistema! Tente novamente');
         }
+
+
     };
 
     return (
