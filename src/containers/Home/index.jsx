@@ -1,9 +1,12 @@
-
+import HomeLogo from '../../assets/Logo-Home.png';
+import { CategoryCarousel } from '../../components/CategoryCarousel';
+import {Container, HomeImg} from './styles'
 
 export function Home() {
     return (
-        <div>
-            <h1>HOME</h1>
-        </div>
+        <Container>
+            <HomeImg src={HomeLogo} alt="Banner-Home" />
+            <CategoryCarousel />
+        </Container>
     )
 }

@@ -212,4 +212,13 @@
             </PrivateRoute>
         )
 
-#
+# 16º - Criando nossa tela de Home
+- Vamos criar nossa tela de Home e junto começar o nosso carrossel
+
+- Crio um novo componente pros carroseis
+    'CategoryCarousel'
+    e os seus arquivos
+
+- Para pegarmos as nossas categorias da API precisamos usar método GET assim como é no backEnd
+
+- Porém assim como o BackEnd precisar tratar com os Token...
