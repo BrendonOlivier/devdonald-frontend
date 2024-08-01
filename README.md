@@ -229,4 +229,20 @@
 
 - No nosso 'services' no arquivo 'api.js' vamos fazer essa busca dentro do localStorage e pega apenas o Token :
 
+# 18º - Criando Carrossel de categorias
+- Iremos utilizar uma Biblioteca de carrossel 
+    Swiper
+
+- Começamos instalando
+    yarn add swiper
+
+- Vamos armazenas as categorias usando o 
+    useState
+
+- Gravanos os dados que vem do 'response.data' no nosso Estado do useState
+    setCategories(data)
+
+- Importamos nossa config do carrossel
+    e configuramos
+
 #
