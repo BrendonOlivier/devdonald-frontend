@@ -47,7 +47,7 @@ export function Login() {
                 putUserData(response.data); // Armazena os dados do usuário 
 
                 setTimeout(() => {
-                    navigate('/')
+                    navigate('/home')
                 }, 1200);
 
                 toast.success('Seja Bem-vindo(a) 🍔');

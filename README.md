@@ -188,3 +188,28 @@
 
 - E por ultimo faço um 'IF' que se tiver algum dado eu coloco ele no nosso CONTEXT
     if (clientInfo) { setUserData(JSON.parse(clientInfo)) }
+
+# 15º - Rotas Privadas utlizando o Navigate
+- Como queremos deixar algumas rotas privadas pra só caso o usuário faça login para ter acesso, vamos configurar algumas rotas
+    deixando elas Privadas.
+
+- Na pasta 'routes' crio meu arquivo
+    privateRoute.jsx
+
+- Importo o Navigate
+    import { Navigate } from 'react-router-dom'
+
+- Crio uma função 'PrivateRoute' e configuro ela, depois só exporto para a aplicação
+
+- Depois importo noso PrivateRoute nas nossas rotas 'routes' + 'index.jsx'
+    import PrivateRoute from './privateRoute'
+
+- E cubro nas rotas que quero deixar privada, por exemplo a HOME :
+     path: "/home",
+        element: (
+            <PrivateRoute>
+                <Home />
+            </PrivateRoute>
+        )
+
+#

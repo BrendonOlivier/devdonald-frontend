@@ -1,12 +1,13 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Navigate  } from 'react-router-dom';
 import { Login } from '../containers/Login';
 import { Register } from '../containers/Register';
 import { Home } from '../containers/Home';
+import PrivateRoute from './privateRoute';
 
 export const router = createBrowserRouter([
     {
         path: '/',
-        element: <Home />
+        element: <Navigate to="/login" />, // Redireciona para a página de login
     },
     {
         path: '/login',
@@ -15,5 +16,13 @@ export const router = createBrowserRouter([
     {
         path: '/cadastro',
         element: <Register />
+    },
+    {
+        path: "/home",
+        element: (
+            <PrivateRoute>
+                <Home />
+            </PrivateRoute>
+        ),
     },
 ]);
