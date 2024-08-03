@@ -3,15 +3,17 @@ import styled from "styled-components";
 export const Container = styled.div`
     max-width: 100vw;
     height: 100%;
-
+    padding: 0 20px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
+    margin-bottom: 70px;
 
     .swiper-wrapper {
         display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+        overflow-x: hidden;
+
     }
 
     img {
@@ -28,9 +30,6 @@ export const Container = styled.div`
     h3 {
         color: black;
         text-align: center;
+        margin-top: 15px;
     }
-`
-
-export const CategoryImg = styled.img`
-    margin: 30px 0;
 `

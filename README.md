@@ -229,7 +229,7 @@
 
 - No nosso 'services' no arquivo 'api.js' vamos fazer essa busca dentro do localStorage e pega apenas o Token :
 
-# 18º - Criando Carrossel de categorias
+# 18º - Criando Carrossel de Categorias e Ofertas
 - Iremos utilizar uma Biblioteca de carrossel 
     Swiper
 
