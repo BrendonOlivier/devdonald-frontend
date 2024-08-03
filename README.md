@@ -267,3 +267,10 @@
 
 # 21º - Criando Cards de Produtos
 - Crio um component de 'Card' para estilizar nossos cards de produtos
+
+# 22º - Criando filtro por categorias
+- Na nossa page de Produtos, temos as categorias
+    Todas, Hambúrgueres, Bebidas, Sobremesas e Entradas
+
+- Pois quando clicarmos em umas das categorias, quero filtar os produtos de acordo com a categoria escolhida
+    Para isso irei usar o 'useEffect'

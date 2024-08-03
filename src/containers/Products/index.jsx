@@ -10,6 +10,7 @@ import { CardProduct } from '../../components/CardProducts';
 export function Products() {
     const [categories, setCategories] = useState([]);
     const [products, setProducts] = useState([]);
+    const [filteredProducts, setFilteredProducts] = useState([]);
     const [activeCategory, setActiveCategory] = useState(0);
 
     useEffect(() => {
@@ -37,6 +38,18 @@ export function Products() {
         loadProducts()
     }, [])
 
+    // Ao clicar nos botões de categoria, quero filtar os produtos de acordo com a escolha de categoria
+    useEffect(() => {
+        if (activeCategory === 0) {
+            setFilteredProducts(products)
+        } else {
+
+            const newFilteredProducts = products.filter(product => product.category_id === activeCategory)
+
+            setFilteredProducts(newFilteredProducts);
+        }
+    }, [activeCategory, products])
+
     return (
         <Container>
             <ProductImg src={ProductLogo} alt="Banner-Home" />
@@ -52,7 +65,7 @@ export function Products() {
             </CategoriesMenu>
 
             <ProductsContainer>
-                {products && products.map(product => (
+                {filteredProducts && filteredProducts.map(product => (
                     <CardProduct key={product.id} product={product} />
                 ))}
             </ProductsContainer>

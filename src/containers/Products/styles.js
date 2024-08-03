@@ -3,12 +3,14 @@ import Background from '../../assets/Background-Fundo.png';
 
 export const Container = styled.div`
     width: 100vw;
+    overflow-x: hidden;
     height: 100%;
     background: #e5e5ed;
+    min-height: 100vh;
 `
 
 export const ProductImg = styled.img`
-    width: 100vw;
+    width: 100%;
 `
 
 export const CategoriesMenu = styled.div`
@@ -21,6 +23,7 @@ export const CategoriesMenu = styled.div`
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
+        padding: 0 10px;
     }
 `
 
@@ -38,7 +41,7 @@ export const ProductsContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    padding: 40px;
+    padding: 80px;
     justify-items: center;
     margin-top: 20px;
 
