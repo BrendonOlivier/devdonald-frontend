@@ -245,4 +245,18 @@
 - Importamos nossa config do carrossel
     e configuramos
 
-#
+# 19º - Formatando Valores monetários ( R$ 0 )
+- Vamos criar uma função que vai formatar valores de 1 para R$ 1, usaremos a pasta 'utils' e o arquivo :
+    'formatCurrency.jsx'
+
+- E fazemos a configuração da formatação da Moeda
+
+- Importamos onde queremos usar, no caso no carrossel de Ofertas
+    import formatCurrency from '../../utils/formatCurrency'
+
+- Colocamo um 'map' depois de fazermos o Filtro dos produtos em ofertar 'filter'
+
+- E passamos a configuração onde pegamos o valor da API
+    {product.formatPrice}
+
+#s
