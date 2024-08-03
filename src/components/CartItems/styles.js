@@ -11,7 +11,7 @@ export const Container = styled.div`
 
 export const Header = styled.div`
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     padding: 10px;
     border-bottom: 1px solid #000000;
 
@@ -24,7 +24,7 @@ export const Header = styled.div`
 
 export const Body = styled.div`
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     grid-gap: 10px 15px;
     align-items: center;
     width: max-content;
@@ -49,6 +49,10 @@ export const Body = styled.div`
         p {
             margin-top: 5px;
         }
+    }
+
+    .lixo {
+        cursor: pointer;
     }
     
 `

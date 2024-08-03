@@ -31,6 +31,47 @@ export const CartProvider = ({ children }) => {
         await localStorage.setItem('devdonald:cartInfo', JSON.stringify(newCartProducts))
     }
 
+    // Função de adicionar mais produtos ao clicar no +
+    const increaseProducts = async productId => {
+        const newCart = cartProducts.map(product => {
+            return product.id === productId ? { ...product, quantity: product.quantity + 1 }
+                : product
+        })
+
+        setCartProducts(newCart)
+
+        // E atualizar os dados no LocalStorage
+        await localStorage.setItem('devdonald:cartInfo', JSON.stringify(newCart))
+    };
+
+    // Função para deletar o produto caso o número seja 1 e eu cliquei em diminuir
+    const deleteProduct = async productId => {
+        const newCart = cartProducts.filter( product => product.id !== productId) // Pegando a posição do item
+
+        setCartProducts(newCart)
+
+        // E atualizar os dados no LocalStorage
+        await localStorage.setItem('devdonald:cartInfo', JSON.stringify(newCart))
+    };
+
+    // Função de diminuir mais produtos ao clicar no -
+    const decreaseProducts = async productId => {
+        const cartIndex = cartProducts.findIndex(pd => pd.id === productId) // Pegando a posição do item
+
+        // Se a quantidade do produto for maior que 1 vou diminuir a quantidade
+        if (cartProducts[cartIndex].quantity > 1) {
+            const newCart = cartProducts.map(product => {
+                return product.id === productId ? { ...product, quantity: product.quantity - 1 }
+                    : product
+            })
+
+            setCartProducts(newCart)
+
+            // E atualizar os dados no LocalStorage
+            await localStorage.setItem('devdonald:cartInfo', JSON.stringify(newCart))
+        }
+    };
+
     // Caso eu inicie ou reinicie a aplicação pego os dados do localStorage
     useEffect(() => {
         const loadUserData = async () => {
@@ -48,7 +89,7 @@ export const CartProvider = ({ children }) => {
 
     // Retornando os dados do usuário para o (children)
     return (
-        <CartContext.Provider value={{ putProductsInCart, cartProducts }}>
+        <CartContext.Provider value={{ putProductsInCart, cartProducts, increaseProducts, decreaseProducts, deleteProduct }}>
             {children}
         </CartContext.Provider>
     )

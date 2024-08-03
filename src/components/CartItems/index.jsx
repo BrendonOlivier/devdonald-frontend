@@ -1,9 +1,10 @@
 import { useCart } from '../../hooks/CartContext';
 import formatCurrency from '../../utils/formatCurrency';
 import { Container, Header, Body, ContainerImg, EmptyCart } from './styles';
+import { FcEmptyTrash } from "react-icons/fc"; // Pegando o icone de lixeira da biblioteca
 
 export function CartItems() {
-    const { cartProducts } = useCart();
+    const { cartProducts, increaseProducts, decreaseProducts, deleteProduct } = useCart();
 
     return (
         <Container>
@@ -13,6 +14,7 @@ export function CartItems() {
                 <p>Preço</p>
                 <p style={{ paddingRight: 40 }}>Quantidade</p>
                 <p style={{ paddingLeft: 10 }}>Total</p>
+                <p></p>
             </Header>
 
             {cartProducts && cartProducts.length > 0 ?
@@ -24,12 +26,14 @@ export function CartItems() {
                         <p>{product.name}</p>
                         <p>{formatCurrency(product.price)}</p>
                         <div className='quant-container'>
-                            <button>-</button>
+                            <button onClick={() => decreaseProducts(product.id)}>-</button>
                             <p>{product.quantity}</p>
-                            <button>+</button>
+                            <button onClick={() => increaseProducts(product.id)}>+</button>
                         </div>
                         <p>{formatCurrency(product.quantity * product.price)}</p>
-
+                        <div className='lixo'>
+                            <FcEmptyTrash size={30} onClick={() => deleteProduct(product.id)} />
+                        </div>
                     </Body>
                 ))
                 : (

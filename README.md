@@ -317,3 +317,21 @@
 # 27º - Estilizando so botões de adicionar e dimunuir os produtos
 - Crio uma 'div' envolta da nossa 'quantidade' e crio 2 botoões de Menos e Mais
     e estilizo
+
+# 28º - Adicionando e Deletando itens do carrinho
+-  Vou adiconar a lógica de pra alterar itens do carrinho no nosso Hook de Cart
+    'CartContext.jsx'
+
+- Crio as funções e exporto para a aplicação
+
+- Para Deletar de vez o item do carrinho vou adicionar um Icone de lixeira pra quando clicar eu excluo de uma vez o produto
+
+- O icone vou usar a biblioteca de Icones do React, o 'React-Icons'
+    yarn add react-icons
+
+- Importo o ícone escolhido na página que quero usar
+    import { NOME DO ICONE } from "react-icons/fc"
+
+- E adiciono a função de deletar ao clicar na lixeira
+
+#
