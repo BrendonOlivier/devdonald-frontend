@@ -259,4 +259,10 @@
 - E passamos a configuração onde pegamos o valor da API
     {product.formatPrice}
 
-#s
+# 20º - Criando o Menu de seleção de Categorias
+- Criamos nossa página de 
+    Products
+
+- E começamos a estilizar...
+
+#

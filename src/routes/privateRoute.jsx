@@ -1,16 +1,14 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
-import { useUser } from '../hooks/UserContext';
 
 const PrivateRoute = ({ children }) => {
-    const { userData } = useUser(); // Obtenha os dados do usuário do contexto  
+    const user = localStorage.getItem('devdonald:userData')
 
-    // Verifica se o usuário está autenticado  
-    const isAuthenticated = userData && Object.keys(userData).length !== 0;
+    if (!user) {
+      return <Navigate to="/login" />
+    }
 
-    // Se o usuário estiver autenticado, renderiza o componente filho  
-    // Caso contrário, redireciona para a página de login  
-    return isAuthenticated ? children : <Navigate to="/login" />;
+   return children
 };
 
 export default PrivateRoute;  
