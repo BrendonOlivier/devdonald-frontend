@@ -274,3 +274,16 @@
 
 - Pois quando clicarmos em umas das categorias, quero filtar os produtos de acordo com a categoria escolhida
     Para isso irei usar o 'useEffect'
+
+# 23º - Alterando exportações e importações de componentes e páginas
+- Conforme nossa aplicação vai crescendo, para não ficar várias linhas de importações irei utilizar um só arquivo
+    que se encarrega de liberar as nossas exportações...
+
+- Na pasta 'components' crio um arquivo
+    'index.jsx'
+
+- E altero as importações somente para
+    ../components
+        pois o código sempre procura como padrão um arquvo 'index'
+
+- E caso queira, faço a mesma coisa com os containers

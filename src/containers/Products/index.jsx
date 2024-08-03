@@ -4,7 +4,7 @@ import formatCurrency from '../../utils/formatCurrency';
 
 import ProductLogo from '../../assets/Logo-Produtos.svg';
 import { Container, ProductImg, CategoriesMenu, CategoryButton, ProductsContainer } from './styles'
-import { CardProduct } from '../../components/CardProducts';
+import { CardProduct } from '../../components';
 
 
 export function Products() {

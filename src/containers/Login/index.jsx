@@ -8,7 +8,7 @@ import { api } from '../../services/api';
 import { toast } from 'react-toastify';
 
 import { Container, LeftContainer, RightContainer, Tittle, Form, InputContainer, Link } from "./styles";
-import { Button } from '../../components/Button';
+import { Button } from '../../components';
 import Logo from '../../assets/Logo-Main.png';
 
 export function Login() {

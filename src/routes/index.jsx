@@ -1,9 +1,6 @@
 import { createBrowserRouter, Navigate  } from 'react-router-dom';
-import { Login } from '../containers/Login';
-import { Register } from '../containers/Register';
-import { Home } from '../containers/Home';
+import { Home, Login, Register, Products } from '../containers';
 import PrivateRoute from './privateRoute';
-import { Products } from '../containers/Products';
 
 export const router = createBrowserRouter([
     {

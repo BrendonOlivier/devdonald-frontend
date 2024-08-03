@@ -1,6 +1,5 @@
 import HomeLogo from '../../assets/Logo-Home.png';
-import { CategoryCarousel } from '../../components/CategoryCarousel';
-import { OffersCarousel } from '../../components/OffersCarousel';
+import { CategoryCarousel, OffersCarousel } from '../../components';
 import { Container, HomeImg, CategoryImg, CategoryImgOffer } from './styles'
 
 import Category from '../../assets/img-categorias.png';
