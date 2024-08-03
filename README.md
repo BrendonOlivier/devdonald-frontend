@@ -265,4 +265,5 @@
 
 - E começamos a estilizar...
 
-#
+# 21º - Criando Cards de Produtos
+- Crio um component de 'Card' para estilizar nossos cards de produtos
