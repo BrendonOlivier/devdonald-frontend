@@ -287,3 +287,10 @@
         pois o código sempre procura como padrão um arquvo 'index'
 
 - E caso queira, faço a mesma coisa com os containers
+
+# 24º - Alterando importação dos Hooks
+- Também como os componentes e páginas iremos reduzir as importações do Hooks criando um arquivo
+    'index.jsx'
+        e colocando todos Context futuros que iremos criar.
+
+#
