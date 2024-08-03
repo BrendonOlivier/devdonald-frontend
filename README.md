@@ -304,4 +304,12 @@
 - E configuro o 'CartContext' para criar a lógica de adicionar um produto e se for adicionado um produto repetido
     apenas vou aumentar a quantidade do mesmo.
 
-#
+# 26º - Criando a Estrutura do Carrinho e Estilizando
+- Crio nossa Página de Cart e crio nossa rota
+
+- Criamos um Component de para melhorar a estilização
+    'CartItems'
+
+- Usamos nosso 'index.jsx' para exportar o componente
+
+- E estilizamos...
