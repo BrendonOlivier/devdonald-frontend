@@ -26,16 +26,36 @@ export const Body = styled.div`
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 10px 15px;
+    align-items: center;
     width: max-content;
+    margin: 20px 0;
 
     p {
         font-size: 16px;
         font-weight: bold;
     }
+
+    .quant-container {
+        display: flex;
+        gap: 20px;
+
+        button {
+            height: 30px;
+            background: transparent;
+            border: none;
+            font-size: 24px;
+        }
+
+        p {
+            margin-top: 5px;
+        }
+    }
+    
 `
 
 export const ContainerImg = styled.div`
-
+    border-radius: 40px;
+    background: #9758a6;
 
     img {
         border-radius: 10px;

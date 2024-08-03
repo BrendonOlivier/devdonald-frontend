@@ -308,8 +308,12 @@
 - Crio nossa Página de Cart e crio nossa rota
 
 - Criamos um Component de para melhorar a estilização
-    'CartItems'
+    'CartItems' 
 
 - Usamos nosso 'index.jsx' para exportar o componente
 
 - E estilizamos...
+
+# 27º - Estilizando so botões de adicionar e dimunuir os produtos
+- Crio uma 'div' envolta da nossa 'quantidade' e crio 2 botoões de Menos e Mais
+    e estilizo
