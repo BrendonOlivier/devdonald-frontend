@@ -293,4 +293,15 @@
     'index.jsx'
         e colocando todos Context futuros que iremos criar.
 
+# 25º - Criando a Lógica do Carrinho
+- Criamos um outro Hook agora das nossas informações do Carrinho
+    'CartContext.jsx'
+        e configuramos...
+
+- Importo o arquivo no nosso 'index.jsx' das pasta 'hooks'
+    import { UserProvider } from './UserContext'
+
+- E configuro o 'CartContext' para criar a lógica de adicionar um produto e se for adicionado um produto repetido
+    apenas vou aumentar a quantidade do mesmo.
+
 #

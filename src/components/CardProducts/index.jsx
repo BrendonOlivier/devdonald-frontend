@@ -1,7 +1,10 @@
 import { Container, ContainerImg, ContainerInfo, ProductName, ProductPrice } from './styles';
 import { Button } from '../Button'
 
+import { useCart } from '../../hooks/CartContext';
+
 export function CardProduct({ product }) {
+    const { putProductsInCart } = useCart()
 
     return (
         <Container>
@@ -12,7 +15,7 @@ export function CardProduct({ product }) {
             <ContainerInfo>
                 <ProductName>{product.name}</ProductName>
                 <ProductPrice>{product.formatPrice}</ProductPrice>
-                <Button>Adicionar</Button>
+                <Button onClick={() => putProductsInCart(product)}>Adicionar</Button>
             </ContainerInfo>
         </Container>
     )
