@@ -370,4 +370,17 @@
 - E como nosso Header só vai aparecer para o usuário logado, irei colocar de forma global para todas as rotas Privadas o 
     Header
 
+# 34º - Deslogando o Usuário
+- Vou criar essa lógica de deslogar o usuário no nosso Hook de
+    'UserContext'
+
+- Passo pro meu Header a função criada no meu 'UserContext'
+    logout
+
+- Importo o logout dentro do nosso 'useUser'
+    import { useUser } from '../../hooks/UserContext'
+
+- Crio uma função para deslogar e coloco um 'onClick' no botão de Sair
+    e pronto, caso eu cliquei em sair, apago os dados no localStorage e ele é redirecionado para o Login.
+
 #

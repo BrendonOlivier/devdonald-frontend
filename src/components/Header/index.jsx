@@ -1,4 +1,5 @@
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useUser } from '../../hooks/UserContext';
 
 import Person from '../../assets/Person.png';
 import Order from '../../assets/Pedido.png'
@@ -7,6 +8,13 @@ import { Container, ContainerLeft, ContainerRight, ContainerText, PageLink, Line
 export function Header() {
     const navigate = useNavigate();
     const location = useLocation();
+    const { logout } = useUser(); // Pegando nossa config para deslogar o usuário
+
+    // Criando a função para deslogar o usuário
+    const logoutUser = () => {
+        logout()
+        navigate('/login')
+    }
 
     return (
         <Container>
@@ -29,7 +37,7 @@ export function Header() {
 
                 <ContainerText>
                     <p>Olá, <span>Brendon</span></p>
-                    <PageLink className='logout'>Sair</PageLink>
+                    <PageLink className='logout' onClick={logoutUser}>Sair</PageLink>
                 </ContainerText>
             </ContainerRight>
         </Container>
