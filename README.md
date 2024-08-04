@@ -360,3 +360,14 @@
 # 32º - Criando nosso Header da aplicação
 - Vamos criar nosso componente de Header
     estilizar e importar na Home
+
+# 33º - Finalizando o Header
+- Iremos colocar a navegação para as páginas ao clicar no Link usando o 
+    useNavigate
+
+- E o location para saber em qual página estamos para alterar os estilos
+
+- E como nosso Header só vai aparecer para o usuário logado, irei colocar de forma global para todas as rotas Privadas o 
+    Header
+
+#

@@ -6,7 +6,7 @@ export const Container = styled.div`
     overflow-x: hidden;
     height: 100%;
     background: #e5e5ed;
-    min-height: 100vh;
+    min-height: calc(100vh - 72px);
 `
 
 export const ProductImg = styled.img`
