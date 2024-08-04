@@ -339,3 +339,7 @@
     'CartResume'
 
 - E fazemos a estilização
+
+# 30º - Criando a Lógica do resumo do Carrinho
+- Para criarmos a lógica do resumo, usarei o 
+    useState
