@@ -357,4 +357,6 @@
 - Como complemento coloco uma confirmação pra se o usuário quer mesmo excluir o Produto
     e caso o carrinho esteja vazio e clique em 'Finalizar Pedido' vou mostrar uma mensagem de erro
 
-#
+# 32º - Criando nosso Header da aplicação
+- Vamos criar nosso componente de Header
+    estilizar e importar na Home
