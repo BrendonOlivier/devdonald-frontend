@@ -334,4 +334,8 @@
 
 - E adiciono a função de deletar ao clicar na lixeira
 
-#
+# 29º - Criando o Resumo do Carrinho
+- Vamos criar nosso component de Resumo
+    'CartResume'
+
+- E fazemos a estilização

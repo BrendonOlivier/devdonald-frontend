@@ -6,6 +6,11 @@ const CartContext = createContext({})
 export const CartProvider = ({ children }) => {
     const [cartProducts, setCartProducts] = useState([])
 
+    // Função para atualizar o LocalStorage
+    const updateLocalStorage = async (produtcs) => {
+        await localStorage.setItem('devdonald:cartInfo', JSON.stringify(produtcs))
+    }
+
     // Pegando os dados dos produtos adicionados
     const putProductsInCart = async product => {
         // Se já estiver o mesmo produto adicionado, estarei pegando a posição desse produto...
@@ -28,7 +33,7 @@ export const CartProvider = ({ children }) => {
         }
 
         // Guardando os dados no localStorage e transformando o objeto em String para guardar
-        await localStorage.setItem('devdonald:cartInfo', JSON.stringify(newCartProducts))
+        await updateLocalStorage(newCartProducts)
     }
 
     // Função de adicionar mais produtos ao clicar no +
@@ -41,17 +46,17 @@ export const CartProvider = ({ children }) => {
         setCartProducts(newCart)
 
         // E atualizar os dados no LocalStorage
-        await localStorage.setItem('devdonald:cartInfo', JSON.stringify(newCart))
+        await updateLocalStorage(newCart)
     };
 
     // Função para deletar o produto caso o número seja 1 e eu cliquei em diminuir
     const deleteProduct = async productId => {
-        const newCart = cartProducts.filter( product => product.id !== productId) // Pegando a posição do item
+        const newCart = cartProducts.filter(product => product.id !== productId) // Pegando a posição do item
 
         setCartProducts(newCart)
 
         // E atualizar os dados no LocalStorage
-        await localStorage.setItem('devdonald:cartInfo', JSON.stringify(newCart))
+        await updateLocalStorage(newCart)
     };
 
     // Função de diminuir mais produtos ao clicar no -
@@ -68,7 +73,7 @@ export const CartProvider = ({ children }) => {
             setCartProducts(newCart)
 
             // E atualizar os dados no LocalStorage
-            await localStorage.setItem('devdonald:cartInfo', JSON.stringify(newCart))
+            await updateLocalStorage(newCart)
         }
     };
 
