@@ -343,3 +343,18 @@
 # 30º - Criando a Lógica do resumo do Carrinho
 - Para criarmos a lógica do resumo, usarei o 
     useState
+
+# 31º - Enviando pedido para a API
+- Para fazermos o Pedido temos que mandar o 'ID' e a 'Quantidade' do produto e bater na rota '/orders' da API
+
+- No nosso 'CartResume' vamos fazer um mapeamento para mandar apenas as informações necessárias
+    .map( id e quantidade)
+
+-  Mando o pedido para a API
+
+- E coloco uma resposta para o usuário
+
+- Como complemento coloco uma confirmação pra se o usuário quer mesmo excluir o Produto
+    e caso o carrinho esteja vazio e clique em 'Finalizar Pedido' vou mostrar uma mensagem de erro
+
+#

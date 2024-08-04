@@ -6,6 +6,13 @@ import { FcEmptyTrash } from "react-icons/fc"; // Pegando o icone de lixeira da 
 export function CartItems() {
     const { cartProducts, increaseProducts, decreaseProducts, deleteProduct } = useCart();
 
+    const handleDeleteProduct = (productId) => {  
+        const confirmDelete = window.confirm("Você realmente deseja excluir este produto?");  
+        if (confirmDelete) {  
+            deleteProduct(productId);  
+        }  
+    }; 
+
     return (
         <Container>
             <Header>
@@ -32,7 +39,7 @@ export function CartItems() {
                         </div>
                         <p>{formatCurrency(product.quantity * product.price)}</p>
                         <div className='lixo'>
-                            <FcEmptyTrash size={30} onClick={() => deleteProduct(product.id)} />
+                            <FcEmptyTrash size={30} onClick={() => handleDeleteProduct(product.id)} />
                         </div>
                     </Body>
                 ))
