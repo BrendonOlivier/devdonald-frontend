@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { api } from '../../services/api';
+import { Link } from 'react-router-dom';
 
-import { Container } from './styles';
+import { Container, Button } from './styles';
 import { Swiper, SwiperSlide } from 'swiper/react'; // Config do carrossel
 
 export function CategoryCarousel() {
@@ -9,9 +10,13 @@ export function CategoryCarousel() {
 
     useEffect(() => {
         async function loadCategories() {
-            const { data } = await api.get('/categories')
+            try {
+                const { data } = await api.get('/categories')
 
-            setCategories(data) // Gravando as categorias pro nosso carrossel
+                setCategories(data) // Gravando as categorias pro nosso carrossel
+            } catch (error) {
+                console.error("Erro ao carregar categorias:", error);
+            }
         }
 
         loadCategories()
@@ -26,10 +31,15 @@ export function CategoryCarousel() {
                 slidesPerView={'auto'}
                 className='swiper'
             >
-                {categories && categories.map((item, index) => (
-                    <SwiperSlide key={index}>
-                            <img src={item.url} alt="" />
-                            <h3>{item.name}</h3>
+                {categories && categories.map((category) => (
+                    <SwiperSlide key={category.id}>
+                        <img src={category.url} alt="foto da categoria" />
+                        <Link to={{
+                            pathname: '/produtos',
+                            state: { categoryId: category.id } // Mudança aqui para categoryId  
+                        }}>
+                            <Button>{category.name}</Button>
+                        </Link>
                     </SwiperSlide>
                 ))}
             </Swiper>

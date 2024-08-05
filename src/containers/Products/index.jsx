@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { api } from '../../services/api';
 import formatCurrency from '../../utils/formatCurrency';
+import { useLocation } from 'react-router-dom';  
 
 import ProductLogo from '../../assets/Logo-Produtos.svg';
 import { Container, ProductImg, CategoriesMenu, CategoryButton, ProductsContainer } from './styles'
@@ -8,10 +9,13 @@ import { CardProduct } from '../../components';
 
 
 export function Products() {
+    const location = useLocation(); // useLocation para obter o objeto de localização  
+    const categoryId = location.state?.categoryId || 0; // Utilize valor padrão caso state não exista
+
     const [categories, setCategories] = useState([]);
     const [products, setProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
-    const [activeCategory, setActiveCategory] = useState(0);
+    const [activeCategory, setActiveCategory] = useState(categoryId);
 
     useEffect(() => {
         // Carregando as categorias
@@ -38,18 +42,19 @@ export function Products() {
         loadProducts()
     }, [])
 
-    // Ao clicar nos botões de categoria, quero filtar os produtos de acordo com a escolha de categoria
-    useEffect(() => {
-        if (activeCategory === 0) {
-            setFilteredProducts(products)
-        } else {
+      // Filtrando produtos sempre que activeCategory ou products mudam  
+      useEffect(() => {  
+        const newFilteredProducts = activeCategory === 0   
+            ? products   
+            : products.filter(product => product.category_id === activeCategory);  
 
-            const newFilteredProducts = products.filter(product => product.category_id === activeCategory)
+        setFilteredProducts(newFilteredProducts);  
+    }, [activeCategory, products]);  
 
-            setFilteredProducts(newFilteredProducts);
-        }
-    }, [activeCategory, products])
-
+    // Ao iniciar o componente, definindo a activeCategory com o categoryId recebido  
+    useEffect(() => {  
+        setActiveCategory(categoryId);  
+    }, [categoryId]); 
     return (
         <Container>
             <ProductImg src={ProductLogo} alt="Banner-Home" />

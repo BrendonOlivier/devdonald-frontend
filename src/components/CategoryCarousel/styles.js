@@ -9,10 +9,8 @@ export const Container = styled.div`
 
     .swiper-wrapper {
         display: flex;
-        align-items: center;
-        flex-wrap: wrap;
+        align-items: center;    
         justify-content: center;
-        overflow-x: hidden;
 
     }
 
@@ -26,10 +24,28 @@ export const Container = styled.div`
             border-radius: 15px;
         }
     }
+`
 
-    h3 {
-        color: black;
-        text-align: center;
-        margin-top: 15px;
+export const Button = styled.a`
+    margin-top: 16px;
+    background: #9758a6;
+    border-radius: 8px;
+    border: none;
+
+    height: 50px;
+    font-size: 18px;
+    text-decoration: none;
+    color: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:active {
+        opacity: 0.6;
     }
 `

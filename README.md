@@ -383,4 +383,9 @@
 - Crio uma função para deslogar e coloco um 'onClick' no botão de Sair
     e pronto, caso eu cliquei em sair, apago os dados no localStorage e ele é redirecionado para o Login.
 
-#
+# 35º - Colocando links nos nossos botões da Home
+- Quando clicarmos em uma categorias, iremos direcionar o usuário para ver os produtos
+
+- E quando clicarmos em adicionar um produto em oferta, iremos direcionar o usuário para o carrinho
+
+- Usando o NAVIGATE E LINK
