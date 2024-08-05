@@ -18,6 +18,7 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 /////////////////////////////////////
 
 import { Container } from './styles'
+import Row from './row'
 
 function Orders() {
     const [orders, setOrders] = useState([]);
@@ -48,7 +49,7 @@ function Orders() {
 
     // Toda vez que eu iniciar a aplicação ou alterar o 'orders', vou alterar os meus 'Rows'
     useEffect(() => {
-        const newRows = orders.map( ord => createData(ord))
+        const newRows = orders.map(ord => createData(ord))
         setRows(newRows)
     }, [orders])
 
@@ -58,7 +59,24 @@ function Orders() {
 
 
         <Container>
-            <p>PEDIDOS</p>
+            <TableContainer component={Paper}>
+                <Table aria-label="collapsible table">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell />
+                            <TableCell>Pedido</TableCell>
+                            <TableCell>Cliente</TableCell>
+                            <TableCell>Data do pedido</TableCell>
+                            <TableCell>Status</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {rows.map((row) => (
+                            <Row key={row.id} row={row} />
+                        ))}
+                    </TableBody>
+                </Table>
+            </TableContainer>
         </Container>
     )
 }

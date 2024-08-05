@@ -457,4 +457,14 @@
 
 - E criamos nosso useEffect para alterar o 'row'
 
+# 40º - Continuando a criação da nossa tabela com MUI
+- Copiamos lá da biblioteca o Header da tabela e alteramos as informações
+    TableContainer
+
+- Agora vamos pegar o CORPO da Tabela, como o componente é muito código, crio um outro arquivo para colocar a config
+    'row.jsx'
+
+- Faço toda a configuração da tabela copiando o 
+    row
+
 #
