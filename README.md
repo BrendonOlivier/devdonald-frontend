@@ -431,4 +431,19 @@
 
 - Se a tela for de administrador, e o usuário não for admin e tentar acessar a rota, vou redirecionar ele para HOME
 
+# 38º - Instando o MUI na nossa aplicação
+- Para agilizar nossa estilização das páginas irei utilizar uma Biblioteca de Componentes
+
+- Primeiro criamos uma pasta dentro de 'Admin' chamada
+    'Orders'
+
+- Instalamos a base da biblioteca - Material
+    yarn add @mui/material @emotion/react @emotion/styled
+        caso queiramos usar com styled components instalamos também
+            yarn add @mui/material @mui/styled-engine-sc styled-components
+
+- Iremos utilizar uma tabela da biblioteca e para usar os componentes de tabela precisamos instalar o  
+    DataGridcomponente 
+        yarn add @mui/x-data-grid
+
 #
