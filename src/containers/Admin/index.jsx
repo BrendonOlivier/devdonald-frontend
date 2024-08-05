@@ -5,7 +5,6 @@ export function Admin() {
 
     return (
         <Container>
-            <p>OLÁ</p>
             <Orders />
         </Container>
     )

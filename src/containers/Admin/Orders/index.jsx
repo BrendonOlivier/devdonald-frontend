@@ -1,8 +1,62 @@
+import { useEffect, useState } from 'react';
+
+// Importações da Biblioteca Material
+import { api } from '../../../services/api';
+import Box from '@mui/material/Box';
+import Collapse from '@mui/material/Collapse';
+import IconButton from '@mui/material/IconButton';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Typography from '@mui/material/Typography';
+import Paper from '@mui/material/Paper';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+/////////////////////////////////////
+
 import { Container } from './styles'
 
 function Orders() {
+    const [orders, setOrders] = useState([]);
+    const [rows, setRows] = useState([]);
+    console.log(orders)
+
+    useEffect(() => {
+        // Carregando as categorias
+        async function loadOrders() {
+            const { data } = await api.get('/orders')
+
+            setOrders(data)
+        }
+
+        loadOrders()
+    }, [])
+
+    // Criando a Ordem da tabela, 1º Nome, 2º OrderId, etc...
+    function createData(order) {
+        return {
+            name: order.user.name,
+            orderId: order._id,
+            date: order.createdAt,
+            status: order.status,
+            products: order.products
+        };
+    };
+
+    // Toda vez que eu iniciar a aplicação ou alterar o 'orders', vou alterar os meus 'Rows'
+    useEffect(() => {
+        const newRows = orders.map( ord => createData(ord))
+        setRows(newRows)
+    }, [orders])
+
+    console.log(rows)
 
     return (
+
+
         <Container>
             <p>PEDIDOS</p>
         </Container>

@@ -446,4 +446,15 @@
     DataGridcomponente 
         yarn add @mui/x-data-grid
 
+# 39º - Começando a construir nossa tabela com MUI
+- Instalamos a biblioteca do MUI
+    yarn add @mui/icons-material
+
+- Importamos todas dependências da TABELA
+
+- Criamos nossa função que cria nossa organização da tabela
+    createData
+
+- E criamos nosso useEffect para alterar o 'row'
+
 #
