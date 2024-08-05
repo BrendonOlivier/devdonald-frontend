@@ -8,14 +8,14 @@ import { Container, ContainerLeft, ContainerRight, ContainerText, PageLink, Line
 export function Header() {
     const navigate = useNavigate();
     const location = useLocation();
-    const { logout } = useUser(); // Pegando nossa config para deslogar o usuário
+    const { logout, userData } = useUser(); // Pegando nossa config para deslogar o usuário
 
     // Criando a função para deslogar o usuário
     const logoutUser = () => {
         logout()
         navigate('/login')
     }
-
+    console.log(userData)
     return (
         <Container>
             <ContainerLeft>
@@ -36,7 +36,7 @@ export function Header() {
                 </PageLink>
 
                 <ContainerText>
-                    <p>Olá, <span>Brendon</span></p>
+                    <p>Olá, <span>{userData.name}</span></p>
                     <PageLink className='logout' onClick={logoutUser}>Sair</PageLink>
                 </ContainerText>
             </ContainerRight>

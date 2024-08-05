@@ -389,3 +389,20 @@
 - E quando clicarmos em adicionar um produto em oferta, iremos direcionar o usuário para o carrinho
 
 - Usando o NAVIGATE E LINK
+
+# 36º - Adicionando nome do usuário ao Header
+- Iremos adicionar no Header a informação do nome do usuário
+
+- Iremos pegar a informação no nosso HOOK
+    UserContext
+        userData
+
+- Passamos junto com a variavel do useUser
+    const { logout, userData } = useUser();
+
+- Pegando só a informação do NAME
+    userData.name
+
+- E passo para nosso código
+
+#
