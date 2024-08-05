@@ -467,4 +467,13 @@
 - Faço toda a configuração da tabela copiando o 
     row
 
+# 41º - Formatando a Data que foi feito o pedido
+- Criamos na nossa pasta 'utils' o arquivo
+    formateDate.jsx
+
+- Lá configuramos como queremos mostrar a data
+
+- Importamos no nosso index, e passamos na nossa função raiz createData
+    date: formatDate(order.createdAt)
+
 #

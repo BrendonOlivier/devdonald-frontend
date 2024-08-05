@@ -7,14 +7,14 @@ import IconButton from '@mui/material/IconButton';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
-import Paper from '@mui/material/Paper';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 /////////////////////////////////////
+
+import { Container, ProductImg } from './styles'
 
 function Row({row}) {
     const [open, setOpen] = useState(false);
@@ -51,7 +51,7 @@ function Row({row}) {
                                         <TableCell>Quantidade</TableCell>
                                         <TableCell>Produto</TableCell>
                                         <TableCell>Categoria</TableCell>
-                                        <TableCell></TableCell>
+                                        <TableCell>Imagem</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -63,7 +63,7 @@ function Row({row}) {
                                             <TableCell>{productRow.name}</TableCell>
                                             <TableCell>{productRow.category}</TableCell>
                                             <TableCell>
-                                                <img src={productRow.url} alt='imagem do produto' />
+                                                <ProductImg src={productRow.url} alt='imagem do produto' />
                                             </TableCell>
                                         </TableRow>
                                     ))}
