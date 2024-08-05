@@ -45,12 +45,18 @@ export function Login() {
 
             if (response.status === 200 || response.status === 201) {
                 putUserData(response.data); // Armazena os dados do usuário 
+                if(response.data.admin) {
+                    navigate('/pedidos')
 
-                setTimeout(() => {
-                    navigate('/home')
-                }, 1200);
+                    toast.success('Olá Brendon 🧐');
+                } else {
+                    setTimeout(() => {
+                        navigate('/home')
+                    }, 1200);
 
-                toast.success('Seja Bem-vindo(a) 🍔');
+                    toast.success('Seja Bem-vindo(a) 🍔');
+                }
+               
             } else if (response.status === 400) {
                 toast.error('🛑 Verifique Email ou Senha se estão corretos');
             } else {

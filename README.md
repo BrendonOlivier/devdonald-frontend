@@ -405,4 +405,30 @@
 
 - E passo para nosso código
 
+# 37º - Validando se o usuário é Admin
+- Daremos andamento agora para a parte de adminstração, primeiro vamos validar se o usuário que está logando é um administrador
+    pois se ele for, irá cair direto para a tela de administração
+
+- Criamos uma nova page
+    'Admin'    
+
+- Criamos nossa pagina, exportamos no nosso 'index.jsx' e criamos a ROTA
+
+- No nosso LOGIN coloco um if para saber se o usuário é um admin
+    caso for, mando ele direto para a rota de 
+        /pedidos
+
+- Nas nossas páginas de administração não vou querer o HEADER, então vou fazer essa validação para tirar o Header
+    para um parâmetro nas nossas rotas
+        isAdmin
+
+- No nosso arquivo 'privateRoute.jsx' pego o parâmetro 'isAdmin' e passo para o Header
+    {!isAdmin && <Header />}
+        assim nossas páginas que colocarmos o 'isAdmin' não mostrará o HEADER
+
+- No momento um usuário logado que não é adminstrador pode ter acesso a rota de 'pedidos' então vou por uma trava
+    no nosso 'privateRoute.jsx'
+
+- Se a tela for de administrador, e o usuário não for admin e tentar acessar a rota, vou redirecionar ele para HOME
+
 #

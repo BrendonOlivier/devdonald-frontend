@@ -15,7 +15,6 @@ export function Header() {
         logout()
         navigate('/login')
     }
-    console.log(userData)
     return (
         <Container>
             <ContainerLeft>
