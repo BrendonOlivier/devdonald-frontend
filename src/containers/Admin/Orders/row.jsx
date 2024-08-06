@@ -19,15 +19,21 @@ import status from './orderStatus'; // Config de Status
 
 import { Container, ProductImg, ReactSelectStyle } from './styles';
 
-function Row({ row }) {
+function Row({ row, setOrders, orders }) {
     const [open, setOpen] = useState(false);
     const [isLoading, setIsLoading] = useState(false); // Config para criar o Loading ao alterar o Status
 
-    // Função para alterar o Status do pedido
+    // Função para alterar o Status do pedido na API e Localmente
     async function setNewStatus(id, status) {
         setIsLoading(true) // Passando o Status como true 
         try {
             await api.put(`/orders/${id}`, { status })
+
+            // Fazendo a atualização Localmente
+            const newOrdes = orders.map(order => {
+                return order._id === id ? { ...order, status } : order
+            })
+            setOrders(newOrdes)
         } catch (err) {
             console.error(err)
         } finally {
@@ -54,7 +60,7 @@ function Row({ row }) {
                 <TableCell>{row.name}</TableCell>
                 <TableCell>{row.date}</TableCell>
                 <TableCell>
-                    <ReactSelectStyle options={status}
+                    <ReactSelectStyle options={status.filter(sts => sts.value !== 'Todos')}
                         menuPortalTarget={document.body}
                         placeholder='Status'
                         defaultValue={status.find(options => options.value === row.status) || null}

@@ -524,4 +524,40 @@
 - E no lugar de <ReactSelect /> Colocamos o ReactSelectStyle
     feito isso podemos pagar nossa importação do ReactSelect
 
+# 43º - Criando menu de seleção de status
+- Vou criar um menu para selecionar os Status, no 'Admin' + 'Orders' = 'index.jsx'
+
+- Importo nosso 'status'
+    import status from './orderStatus'; // Config de Status
+
+- Depois criamos uma função para filtar os pedidos utilizando o
+    filter()
+
+- Depois no nosso Link do Menu coloco o
+    onClick e passo a função que faz os filtros.
+        onClick={() => handleStatus(status)}
+
+- Feito isso ao clicar em algum Link do nosso Menu, iremos filtrar os produtos pelo Status, Ex:
+    Em preparação = mostra os produtos Em preparação.
+
+- No nosso arquivo 'row.jsx' precisamos colocar uma config que caso eu altere o Status do pedido, preciso atualizar não só
+    na API como também Localmente :
+
+- Antes no nosso 'index.jsx' preciso mandar nossa variavel com as ordens, lá embaixo no nosso 'TableBody' onde mando o row
+    eu mando nossas ordens :
+        setOrders={setOrders} orders={orders}
+            e assim conseguiremos pegar direto do arquivo 'row.jsx'
+
+- Passo para função row, que estou recebendo esses parâmetros
+    function Row({ row, setOrders, orders })
+
+- Na minha função 'setNewStatus' coloco a config para fazer essa atualização com a variável
+    const newOrdes = orders.map()
+
+- E depois no 'index.jsx' fazemos um useEffect usando o filter para atualiar também as ordens Filtradas
+
+- E para finalizar, no 'row.jsx' onde passamos os status que irão aparecer no Select (ReactSelectStyle) não quero mostrar a 
+    opção 'Todos', então passo um filter para mostrar apenas os outros Status :
+        options={status.filter(sts => sts.value !== 'Todos')}
+        
 #
