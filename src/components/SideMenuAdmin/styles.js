@@ -34,6 +34,10 @@ export const ContainerLinks = styled.div`
     background: ${props => props.isActive ? '#9758a6' : 'transparent'};
     border-radius: 2px;
     margin: 8px;
+
+    .icon {
+        color: white;
+    }
 `
 
 export const ListLink = styled(Link)`

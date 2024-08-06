@@ -613,4 +613,36 @@
 
 - E faço a estilização
 
+# 48º - Organizando menu e tela de Admin
+- Vamos criar uma pasta dentro de 'src' chamada
+    'constants'
+        e o arquivo
+            'path.jsx'
+
+- Dentro desse arquivo vai ficar nossos 'paths' caminhos de http para nos ajudar a organizar a aplicação
+    é uma forma mais simples do que criar outras rotas e ficar um código gigante
+
+- Depois no nosso arquivo de rotas : 'routes' = 'index.jsx' importo nossos paths
+    import paths from '../constants/path';
+
+- E em vez de passar o caminho, path: '/pedidos/' , vai ficar assim :
+    path: paths.Products
+        e assim pras demais rotas da aréa de adminstrador
+
+- Depois no nosso componente 'SideMenuAdmin' = 'menuList.jsx' vamos alterar o 'link:' para 
+    link: paths.Order
+        e assim pras demais rotas da aréa de adminstrador
+
+- Feito isso, ao clicar nos links, sou redirecionado para o 'path'
+
+- E ao ser direcionado para o 'path' vou tambem renderizar o componente relacionado ao path, exe :
+    se eu clicar em 'Listar Produtos' quero mostrar o componente 'LisProducts'
+
+- Para isso precisamos ir no nosso 'Admin' = 'index.jsx' e comparar o pathname com o caminho do componente, para isso vou precisar
+    usar o useLocation, onde pego o pathname dentro dele e faço a comparação
+        {pathUrl === paths.Order && <Orders />}
+        {pathUrl === paths.Products && <ListProducts />}
+
+- Dessa maneira além de eu clicar no botão e ser redirecionado para o path expecifico, ou também renderizar os components
+
 #

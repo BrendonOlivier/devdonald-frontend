@@ -43,13 +43,13 @@ function ListProducts() {
         <Container>
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                    <TableHead>
+                    <TableHead style={{background: '#333232'}}>
                         <TableRow>
-                            <TableCell>Nome</TableCell>
-                            <TableCell>Preço</TableCell>
-                            <TableCell align='center'>Produto em Oferta</TableCell>
-                            <TableCell align='center'>Imagem do Produto</TableCell>
-                            <TableCell>Editar</TableCell>
+                            <TableCell style={{color: '#fff'}}>Nome</TableCell>
+                            <TableCell style={{color: '#fff'}}>Preço</TableCell>
+                            <TableCell align='center' style={{color: '#fff'}}>Produto em Oferta</TableCell>
+                            <TableCell align='center' style={{color: '#fff'}}>Imagem do Produto</TableCell>
+                            <TableCell style={{color: '#fff'}}>Editar</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>

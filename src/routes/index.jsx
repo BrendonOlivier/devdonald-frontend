@@ -1,6 +1,10 @@
 import { createBrowserRouter, Navigate  } from 'react-router-dom';
 import { Home, Login, Register, Products, Cart, Admin } from '../containers';
 import PrivateRoute from './privateRoute';
+import paths from '../constants/path';
+
+import Orders from '../containers/Admin/Orders';  
+import ListProducts from '../containers/Admin/ListProducts';
 
 export const router = createBrowserRouter([
     {
@@ -40,7 +44,7 @@ export const router = createBrowserRouter([
         ),
     },
     {
-        path: "/pedidos",
+        path: paths.Order,
         element: (
             <PrivateRoute isAdmin>
                 <Admin />
@@ -48,7 +52,7 @@ export const router = createBrowserRouter([
         ),
     },
     {
-        path: "/listar-produtos",
+        path: paths.Products,
         element: (
             <PrivateRoute isAdmin>
                 <Admin />
