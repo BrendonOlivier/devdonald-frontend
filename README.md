@@ -697,7 +697,7 @@
     import { useForm, Controller } from "react-hook-form"
 
 - coloco algumas configs :
-    name='category_id'
+    name='category'
     control={control}
     render={({ field }) => { return () }}
         e Dentro do return() coloco o ReactSelect
@@ -707,4 +707,8 @@
 
 - E agora nosso React-Hook-Form está pegando todos os dados do formulário.
 
+# 54º - Validando formulário de criação do produto
+- Vamos validar o formulario para evitar erros ou mandar algum campo vazio, irei utilizar o conhecido 
+    Yup
+    
 #

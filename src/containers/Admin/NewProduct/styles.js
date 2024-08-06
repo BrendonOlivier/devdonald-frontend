@@ -12,6 +12,7 @@ export const Container = styled.div`
         border-radius: 10px;
         padding: 30px;
     }
+
 `
 
 export const Label = styled.p`
@@ -66,4 +67,11 @@ export const LabelUload = styled.label`
         opacity: 0;
         width: 1px;
     }
+`
+
+export const Error = styled.p`
+    font-size: 14px;
+    line-height: 80%;
+    color: #cf3057;
+    font-weight: 600;
 `
