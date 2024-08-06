@@ -577,4 +577,13 @@
 
 - E fazemos toda a estilização.
 
-#
+# 45º - Criando logout Admin
+- Para eu clicar no botão de 'Sair' e fazer logout da aplicação, usarei a função já criada no componente 'Header' logout
+    para isso importo o useUser
+        import { useUser } from '../../hooks/UserContext';
+
+- E pego a função logout lá de dentro dos hooks
+    const { logout } = useUser()
+
+- E passo para nosso link de Sair o 
+    to='/login' onClick={logout}

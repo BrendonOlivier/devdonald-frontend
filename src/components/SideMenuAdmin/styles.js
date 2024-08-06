@@ -31,7 +31,7 @@ export const ContainerLinks = styled.div`
     display: flex;
     align-items: center;
     padding-left: 30px;
-    background: #9758a6;
+    background: ${props => props.isActive ? '#9758a6' : 'transparent'};
     border-radius: 2px;
     margin: 8px;
 `
