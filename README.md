@@ -603,4 +603,14 @@
 
 - E coloco a config da nossa tabela do MUI no return( )
 
+# 47º - Continuando a tela de listagem de produtos
+- Vou utilizar dessa vez icones do MUI, primeiro instalamos
+    yarn add @mui/icons-material @mui/material @emotion/styled @emotion/react
+
+- E importo os icones que desejo utilizar
+    import CheckBoxIcon from '@mui/icons-material/CheckBox'; // Icone check do MUI
+    import CancelIcon from '@mui/icons-material/Cancel'; // Icone cancel do MUI
+
+- E faço a estilização
+
 #
