@@ -1,13 +1,15 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { api } from '../../../services/api';
 import { useForm } from "react-hook-form"
 
-import { Container, Label, Input, Button } from './styles';
+import { Container, Label, Input, Button, LabelUload } from './styles';
+import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate'; // Icone do upload
 import ReactSelect from 'react-select';
 
 function NewProduct() {
-    const { register, handleSubmit } = useForm()
-    const onSubmit = (data) => console.log(data)
+    const [fileName, setFileName] = useState(null); // Estado 
+    const { register, handleSubmit } = useForm(); // Config do react-hook-form
+    const onSubmit = (data) => console.log(data); // Config do react-hook-form
 
     useEffect(() => {
         // Carregando as categorias
@@ -29,8 +31,19 @@ function NewProduct() {
                 <Label>Preço</Label>
                 <Input type='number' {...register("price")} />
 
-                <Label>Upload da imagem</Label>
-                <Input type='file' accept='imagem/png, imagem/jpeg' />
+                <LabelUload>
+                    {fileName || (
+                        <>
+                            <AddPhotoAlternateIcon />
+                            Carregar imagem do produto
+                        </>)}
+                    <input
+                        type='file'
+                        accept='imagem/png, imagem/jpeg'
+                        {...register("file")}
+                        onChange={value => { setFileName(value.target.files[0]?.name) }}
+                    />
+                </LabelUload>
 
                 <ReactSelect />
 

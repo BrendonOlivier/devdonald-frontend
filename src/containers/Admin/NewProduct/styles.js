@@ -24,6 +24,7 @@ export const Label = styled.p`
 export const Input = styled.input`
     height: 40px;
     width: 100%;
+    min-width: 290px;
     border-radius: 8px;
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
     border: none;
@@ -47,5 +48,22 @@ export const Button = styled.button`
 
     &:active {
         opacity: 0.5;
+    }
+`
+
+export const LabelUload = styled.label`
+    cursor: pointer;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px dashed #fff;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+
+    input {
+        opacity: 0;
+        width: 1px;
     }
 `

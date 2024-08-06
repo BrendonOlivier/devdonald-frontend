@@ -672,4 +672,5 @@
 
 - Criamos a estrutura, e estilizamos
 
-#
+# 52º - Criando input de upload de imagem
+- Vamos criar nosso input de upload de fotos
