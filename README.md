@@ -711,4 +711,9 @@
 - Vamos validar o formulario para evitar erros ou mandar algum campo vazio, irei utilizar o conhecido 
     Yup
     
+# 55º - Enviando novo produto para o Back-end
+- Para mandar os dados do formulário para o Back-end (API) iremos utilizar o 'formData' do JavaScript
+
+- Faço toda essa configuração no meu 'onSubmit'
+
 #

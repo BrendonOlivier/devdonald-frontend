@@ -11,6 +11,9 @@ export const Container = styled.div`
         background: #363636;
         border-radius: 10px;
         padding: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
     }
 
 `
@@ -29,7 +32,7 @@ export const Input = styled.input`
     border-radius: 8px;
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
     border: none;
-    margin-bottom: 25px;
+    padding-left: 10px;
 `
 
 export const Button = styled.button`
@@ -61,7 +64,6 @@ export const LabelUload = styled.label`
     border: 1px dashed #fff;
     border-radius: 5px;
     padding: 10px;
-    margin-bottom: 20px;
 
     input {
         opacity: 0;
@@ -74,4 +76,5 @@ export const Error = styled.p`
     line-height: 80%;
     color: #cf3057;
     font-weight: 600;
+    margin-top: 5px;
 `

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import {useNavigate} from 'react-router-dom';
 import { api } from '../../../services/api';
 import { useForm, Controller } from "react-hook-form";
 import * as yup from "yup";
@@ -7,10 +8,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Container, Label, Input, Button, LabelUload, Error } from './styles';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate'; // Icone do upload
 import ReactSelect from 'react-select';
+import { toast } from 'react-toastify';
 
 function NewProduct() {
     const [fileName, setFileName] = useState(null); // Estado do file de upload de imagem
     const [categories, setCategories] = useState([]);
+    const navigate = useNavigate();
 
     // Validação os campos para o formulário
     const schema = yup
@@ -35,7 +38,32 @@ function NewProduct() {
         resolver: yupResolver(schema),
     })
 
-    const onSubmit = (data) => console.log(data); // Config do react-hook-form    
+    // Mandando os dados para a API no formato 'FormData'
+    const onSubmit = async data => {
+        const productDataFormData = new FormData()
+
+        // Montando a estrutura o FormData usando o 'append'
+        productDataFormData.append('name', data.name)
+        productDataFormData.append('price', data.price)
+        productDataFormData.append('category_id', data.category.id)
+        productDataFormData.append('file', data.file[0])
+
+        // Enviando um feedback visual com o toast
+        await toast.promise( api.post('/products', productDataFormData), {
+            pending: 'Criando novo produto...',
+            success: 'Produto criado com sucesso',
+            error: 'Falha ao criar o produto'
+        })
+
+        setTimeout(() => {
+            navigate('/listar-produtos')
+        }, 1200);
+
+        // Enviando para o Back-end
+
+
+        console.log(productDataFormData)
+    }
 
     useEffect(() => {
         // Carregando as categorias
@@ -51,45 +79,54 @@ function NewProduct() {
     return (
         <Container>
             <form noValidate onSubmit={handleSubmit(onSubmit)}>
-                <Label>Nome</Label>
-                <Input type='text' {...register("name")} />
-                <Error>{errors?.name?.message}</Error>
 
-                <Label>Preço</Label>
-                <Input type='number' {...register("price")} />
-                <Error>{errors?.price?.message}</Error>
+                <div>
+                    <Label>Nome</Label>
+                    <Input type='text' {...register("name")} />
+                    <Error>{errors?.name?.message}</Error>
+                </div>
 
-                <LabelUload>
-                    {fileName || (
-                        <>
-                            <AddPhotoAlternateIcon />
-                            Carregar imagem do produto
-                        </>)}
-                    <input
-                        type='file'
-                        accept='imagem/png, imagem/jpeg'
-                        {...register("file")}
-                        onChange={value => { setFileName(value.target.files[0]?.name) }}
-                    />
-                </LabelUload>
-                <Error>{errors?.file?.message}</Error>
+                <div>
+                    <Label>Preço</Label>
+                    <Input type='number' {...register("price")} />
+                    <Error>{errors?.price?.message}</Error>
+                </div>
 
-                <Controller
-                    name='category'
-                    control={control}
-                    render={({ field }) => {
-                        return (
-                            <ReactSelect
-                                {...field}
-                                options={categories}
-                                getOptionLabel={cat => cat.name}
-                                getOptionValue={cat => cat.id}
-                                placeholder='...Escolha a categoria'
-                            />
-                        )
-                    }}>
-                </Controller>
-                <Error>{errors?.category?.message}</Error>
+                <div>
+                    <LabelUload>
+                        {fileName || (
+                            <>
+                                <AddPhotoAlternateIcon />
+                                Carregar imagem do produto
+                            </>)}
+                        <input
+                            type='file'
+                            accept='imagem/png, imagem/jpeg'
+                            {...register("file")}
+                            onChange={value => { setFileName(value.target.files[0]?.name) }}
+                        />
+                    </LabelUload>
+                    <Error>{errors?.file?.message}</Error>
+                </div>
+
+                <div>
+                    <Controller
+                        name='category'
+                        control={control}
+                        render={({ field }) => {
+                            return (
+                                <ReactSelect
+                                    {...field}
+                                    options={categories}
+                                    getOptionLabel={cat => cat.name}
+                                    getOptionValue={cat => cat.id}
+                                    placeholder='...Escolha a categoria'
+                                />
+                            )
+                        }}>
+                    </Controller>
+                    <Error>{errors?.category?.message}</Error>
+                </div>
 
                 <Button>Adicionar Produto</Button>
             </form>
