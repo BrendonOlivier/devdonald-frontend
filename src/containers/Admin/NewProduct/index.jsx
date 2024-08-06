@@ -1,30 +1,32 @@
 import { useEffect, useState } from 'react';
 import { api } from '../../../services/api';
-import { useForm } from "react-hook-form"
+import { useForm, Controller } from "react-hook-form";
 
 import { Container, Label, Input, Button, LabelUload } from './styles';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate'; // Icone do upload
 import ReactSelect from 'react-select';
 
 function NewProduct() {
-    const [fileName, setFileName] = useState(null); // Estado 
-    const { register, handleSubmit } = useForm(); // Config do react-hook-form
+    const [fileName, setFileName] = useState(null); // Estado do file de upload de imagem
+    const [categories, setCategories] = useState([]);
+
+    const { register, handleSubmit, control } = useForm(); // Config do react-hook-form
     const onSubmit = (data) => console.log(data); // Config do react-hook-form
 
     useEffect(() => {
         // Carregando as categorias
-        async function loadProducts() {
-            const { data } = await api.get('/products')
-
-            setProducts(data)
+        async function loadCategories() {
+            const { data } = await api.get('/categories')
+            console.log(data)
+            setCategories(data)
         }
 
-        loadProducts()
+        loadCategories()
     }, [])
 
     return (
         <Container>
-            <form noValidate>
+            <form noValidate onSubmit={handleSubmit(onSubmit)}>
                 <Label>Nome</Label>
                 <Input type='text' {...register("name")} />
 
@@ -45,7 +47,21 @@ function NewProduct() {
                     />
                 </LabelUload>
 
-                <ReactSelect />
+                <Controller
+                    name='category_id'
+                    control={control}
+                    render={({ field }) => {
+                        return (
+                            <ReactSelect
+                                {...field}
+                                options={categories}
+                                getOptionLabel={cat => cat.name}
+                                getOptionValue={cat => cat.id}
+                                placeholder='...Escolha a categoria'
+                            />
+                        )
+                    }}>
+                </Controller>
 
                 <Button>Adicionar Produto</Button>
             </form>

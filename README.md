@@ -674,3 +674,37 @@
 
 # 52º - Criando input de upload de imagem
 - Vamos criar nosso input de upload de fotos
+
+# 53º - Criando select de categorias
+- Agora vou mecher no ReactSelect para carregar nossas categorias, pois iremos adicionar um produto apontando para qual
+    categoria ele vai ser introduzido.
+
+- Vamos começar carregando as categorias usando o useState
+    const [categories, setCategories] = useState([])
+
+- E usaremos o useEffect para pegar os dados das nossas categorias...
+
+- Agora no nosso ReactSelect vamos por as configs : 
+    options={categories}                    Qual é os dados, no caso nossas categorais
+    getOptionLabel={cat => cat.name}        Colocando o nome das categorias
+    getOptionValue={cat => cat.id}          Mandando o ID da categoria escolhida
+
+- Como estamos usando Components de Terceiros, como é o caso do ReactSelect, o React-Hook-Form não guarda os dados de componentes  
+    de Terceiros, mas o React-Hook-Form tem uma ferramenta pra utilizar junto com essss components chamado
+        Controller
+
+- Importamos o controller junto com o useForm
+    import { useForm, Controller } from "react-hook-form"
+
+- coloco algumas configs :
+    name='category_id'
+    control={control}
+    render={({ field }) => { return () }}
+        e Dentro do return() coloco o ReactSelect
+
+- O control importamos junto com o useForm
+    const { register, handleSubmit, control } = useForm()
+
+- E agora nosso React-Hook-Form está pegando todos os dados do formulário.
+
+#
