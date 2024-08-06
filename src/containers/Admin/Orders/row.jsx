@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { api } from '../../../services/api';
 
 // Importações da Biblioteca Material
 import Box from '@mui/material/Box';
@@ -14,10 +15,26 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 /////////////////////////////////////
 
-import { Container, ProductImg } from './styles'
+import status from './orderStatus'; // Config de Status
 
-function Row({row}) {
+import { Container, ProductImg, ReactSelectStyle } from './styles';
+
+function Row({ row }) {
     const [open, setOpen] = useState(false);
+    const [isLoading, setIsLoading] = useState(false); // Config para criar o Loading ao alterar o Status
+
+    // Função para alterar o Status do pedido
+    async function setNewStatus(id, status) {
+        setIsLoading(true) // Passando o Status como true 
+        try {
+            await api.put(`/orders/${id}`, { status })
+        } catch (err) {
+            console.error(err)
+        } finally {
+            setIsLoading(false) // E tiramos o Loading caso dê tudo certo
+        }
+
+    }
 
     return (
         <React.Fragment>
@@ -36,7 +53,17 @@ function Row({row}) {
                 </TableCell>
                 <TableCell>{row.name}</TableCell>
                 <TableCell>{row.date}</TableCell>
-                <TableCell>{row.status}</TableCell>
+                <TableCell>
+                    <ReactSelectStyle options={status}
+                        menuPortalTarget={document.body}
+                        placeholder='Status'
+                        defaultValue={status.find(options => options.value === row.status) || null}
+                        onChange={newStatus => {
+                            setNewStatus(row.orderId, newStatus.value)
+                        }}
+                        isLoading={isLoading}
+                    />
+                </TableCell>
             </TableRow>
             <TableRow>
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>

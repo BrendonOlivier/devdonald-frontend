@@ -476,4 +476,52 @@
 - Importamos no nosso index, e passamos na nossa função raiz createData
     date: formatDate(order.createdAt)
 
+# 42º - Atualizando status do pedido
+- Começeo criando no meu 'row' a função para alterar o Status do pedido
+
+- Usaremos outra biblioteca de componentes, dessa vez de SELECTS, e a biblioteca é o '' REACT SELECT ''
+    yarn add react-select
+
+- Depois importamos a biblioteca no nosso 'row.jsx'
+    import ReactSelect from 'react-select'
+
+- E passamos no lugar de 'row.status' o nosso
+    <ReactSelect />
+        feito isso já vai criar um Input Select para nós pronto na tabela
+
+- Criamos um novo arquivo chamado 
+    orderStatus.jsx
+        lá colocaremos os Status que queremos que apareça no SELECT, e exportamos
+
+- Importamos no nosso row a config do 'ordersStatus.jsx'
+    import status from './orderStatus'
+
+- Depois no nosso <ReactSelect /> passamos a config
+    options={status}
+        e para não ter o problmea dos Selects ficar cortados, colocamos tambem essa config
+    menuPortalTarget={document.body}
+        tambem podemos alterar o placeholder
+    placeholder='Status'
+        podemos por um valor padrão
+    defaultValue={status.find( options => options.value === row.status) || null}
+
+- Agora iremos colocar para mudar o Status e tambem alterar na API, no mesmo componente <ReactSelect /> coloco a config
+    onChange={ newStatus => { setNewStatus(row.orderId, newStatus.value) }}
+        estarei mandando o ID do produto e o value que é o status que foi alterado
+
+- Vamos Estilizar nosso React-Select, na documentação vamos em 'Custom Style' onde ensina como estilizar,
+    mas como estamos utilizando o styled-components, temos outra forma de estilizar :
+
+- Vamos no nosso 'styles.js', e importamos o 
+    import ReactSelect from "react-select"
+
+- E podemos estilizar :
+    export const ReactSelectStyle = styled(ReactSelect)``
+
+- Mas para os estilos serem aplicados, precisamos passar o 'ReactSelectStyle' para nosso row dos Styles
+    import { ..., ..., ReactSelectStyle } from './styles';
+
+- E no lugar de <ReactSelect /> Colocamos o ReactSelectStyle
+    feito isso podemos pagar nossa importação do ReactSelect
+
 #
