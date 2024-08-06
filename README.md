@@ -657,4 +657,14 @@
 - E passo para o isActive, que assim que usarmos no nosso style, podemos alterar o visual do Link ativado
     isActive={pathname === item.link}
 
+# 50º - Começando tela de adição de novo produto
+- Começo criando um outro link pro nosso menu lateral em 'SideMenuAdmin' = 'menuList.jsx'
+
+- Depois crio nossa rota de NewProduct
+
+- E vamos começar criar nosso component em 'Admin' e a pasta 'NewProduct'
+
+- E crio por último nosso component no index.jsx
+    {pathname === paths.NewProduct && <NewProduct />}
+
 #

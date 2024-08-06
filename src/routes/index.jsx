@@ -59,4 +59,12 @@ export const router = createBrowserRouter([
             </PrivateRoute>
         ),
     },
+    {
+        path: paths.NewProduct,
+        element: (
+            <PrivateRoute isAdmin>
+                <Admin />
+            </PrivateRoute>
+        ),
+    },
 ]);
