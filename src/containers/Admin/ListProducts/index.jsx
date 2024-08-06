@@ -17,7 +17,7 @@ import CancelIcon from '@mui/icons-material/Cancel'; // Icone cancel do MUI
 import formatCurrency from '../../../utils/formatCurrency';
 
 function ListProducts() {
-    const [products, setProducts] = useState([]); // Guardando todos nossos produtos
+    const [products, setProducts] = useState(); // Guardando todos nossos produtos
 
     useEffect(() => {
         // Carregando as categorias
@@ -33,42 +33,43 @@ function ListProducts() {
     // Função para saber qual icone mostrar pra se o produto está em oferta ou não
     function isOffer(offerStatus) {
         if (offerStatus) {
-            return <CheckBoxIcon style={{color: '#228B22'}} />
+            return <CheckBoxIcon style={{ color: '#228B22' }} />
         }
 
-        return <CancelIcon style={{color: '#CC1717'}} />
+        return <CancelIcon style={{ color: '#CC1717' }} />
     }
 
     return (
         <Container>
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                    <TableHead style={{background: '#333232'}}>
+                    <TableHead style={{ background: '#333232' }}>
                         <TableRow>
-                            <TableCell style={{color: '#fff'}}>Nome</TableCell>
-                            <TableCell style={{color: '#fff'}}>Preço</TableCell>
-                            <TableCell align='center' style={{color: '#fff'}}>Produto em Oferta</TableCell>
-                            <TableCell align='center' style={{color: '#fff'}}>Imagem do Produto</TableCell>
-                            <TableCell style={{color: '#fff'}}>Editar</TableCell>
+                            <TableCell style={{ color: '#fff' }}>Nome</TableCell>
+                            <TableCell style={{ color: '#fff' }}>Preço</TableCell>
+                            <TableCell align='center' style={{ color: '#fff' }}>Produto em Oferta</TableCell>
+                            <TableCell align='center' style={{ color: '#fff' }}>Imagem do Produto</TableCell>
+                            <TableCell style={{ color: '#fff' }}>Editar</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {products.map(product => (
-                            <TableRow
-                                key={product.id}
-                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                            >
-                                <TableCell component="th" scope="row">
-                                    {product.name}
-                                </TableCell>
-                                <TableCell>{formatCurrency(product.price)}</TableCell>
-                                <TableCell align='center'>{isOffer(product.offer)}</TableCell>
-                                <TableCell align='center'><Img src={product.url} alt='imagem-produto' /></TableCell>
-                                <TableCell align='center'>
-                                    <EditIcon />
-                                </TableCell>
-                            </TableRow>
-                        ))}
+                        {products &&
+                            products.map(product => (
+                                <TableRow
+                                    key={product.id}
+                                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                >
+                                    <TableCell component="th" scope="row">
+                                        {product.name}
+                                    </TableCell>
+                                    <TableCell>{formatCurrency(product.price)}</TableCell>
+                                    <TableCell align='center'>{isOffer(product.offer)}</TableCell>
+                                    <TableCell align='center'><Img src={product.url} alt='imagem-produto' /></TableCell>
+                                    <TableCell align='center'>
+                                        <EditIcon />
+                                    </TableCell>
+                                </TableRow>
+                            ))}
                     </TableBody>
                 </Table>
             </TableContainer>

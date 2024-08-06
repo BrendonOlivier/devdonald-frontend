@@ -8,15 +8,15 @@ import { SideMenuAdmin } from '../../components'
 
 export function Admin() {
     const location = useLocation();  
-    const pathUrl = location.pathname // Pegando o pathname dentro de location e guardando na Variavel 'pathUrl'
+    const pathname = location.pathname // Pegando o pathname dentro de location e guardando na Variavel 'pathUrl'
 
     return (
         <Container>
-            <SideMenuAdmin />
+            <SideMenuAdmin pathname={pathname} />
 
             <ContainerItems>
-                {pathUrl === paths.Order && <Orders />}
-                {pathUrl === paths.Products && <ListProducts />}
+                {pathname === paths.Order && <Orders />}
+                {pathname === paths.Products && <ListProducts />}
             </ContainerItems>
         </Container>
     )

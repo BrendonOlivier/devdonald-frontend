@@ -645,4 +645,16 @@
 
 - Dessa maneira além de eu clicar no botão e ser redirecionado para o path expecifico, ou também renderizar os components
 
+# 49º - Organizando link ativo no menu Admin
+- Queremos agora deixar só o LINK ativado do menu lateral com uma cor diferente, para isso precisamos denovo comparar os path
+    para isso eu passo no meu 'Admin' = 'index.jsx' <SideMenuAdmin /> o parâmetro levando o path name
+        pathname={pathname}
+
+- Depois no nosso 'SideMenuAdmin' = 'index.jsx' na minha função SideMenuAdmin
+    pego o parâmetro vindo do admin :
+        {pathname}
+
+- E passo para o isActive, que assim que usarmos no nosso style, podemos alterar o visual do Link ativado
+    isActive={pathname === item.link}
+
 #

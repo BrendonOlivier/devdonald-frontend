@@ -5,7 +5,7 @@ import { Container, ContainerImg, ContainerLinks, ListLink } from './styles';
 import Logo from '../../assets/Logo-Main.png';
 import Sair from '../../assets/icon-sair.png';
 
-export function SideMenuAdmin() {
+export function SideMenuAdmin({ pathname }) {
     const { logout } = useUser(); // Função para deslogar
 
     return (
@@ -16,14 +16,14 @@ export function SideMenuAdmin() {
             <hr></hr>
 
             {listLinks.map(item => (
-                <ContainerLinks key={item.id} isActive={true}>
-                    <item.icon className='icon'/>
+                <ContainerLinks key={item.id} isActive={pathname === item.link}>
+                    <item.icon className='icon' />
                     <ListLink to={item.link}>{item.label}</ListLink>
                 </ContainerLinks>
             ))}
             <hr></hr>
 
-            <ContainerLinks style={{position: 'absolute', bottom: '30px'}}>
+            <ContainerLinks style={{ position: 'absolute', bottom: '30px' }}>
                 <img src={Sair} />
                 <ListLink to='/login' onClick={logout}>Sair</ListLink>
             </ContainerLinks>
