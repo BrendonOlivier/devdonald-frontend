@@ -559,5 +559,22 @@
 - E para finalizar, no 'row.jsx' onde passamos os status que irão aparecer no Select (ReactSelectStyle) não quero mostrar a 
     opção 'Todos', então passo um filter para mostrar apenas os outros Status :
         options={status.filter(sts => sts.value !== 'Todos')}
-        
+
+# 44º - Criando menu lateral
+- Vamos criar o menu lateral usando um componente, crio um novo componente chamado
+    'SideMenuAdmin'
+        e exportamos ele de forma Global 
+
+- Depois no nosso 'index.jsx' importamos o SideMenuAdmin
+    'Admin' + 'index.jsx'
+
+- Após feito isso, volto para a pasta do nosso componente e crio um arquivo chamado :
+    'menuList.jsx'  
+        onde vai ficar todas as informações dos nossos itens
+
+- Importamos nossa config do 'menuList' no 'index.jsx' do componente
+    import listLinks from './menuList'
+
+- E fazemos toda a estilização.
+
 #
