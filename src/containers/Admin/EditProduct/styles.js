@@ -78,3 +78,15 @@ export const Error = styled.p`
     font-weight: 600;
     margin-top: 5px;
 `
+
+export const ContainerInput = styled.div`
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+
+    input {
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+    }
+`

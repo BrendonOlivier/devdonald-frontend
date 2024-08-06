@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import {useLocation, useNavigate} from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { api } from '../../../services/api';
 import { useForm, Controller } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import { Container, Label, Input, Button, LabelUload, Error } from './styles';
+import { Container, Label, Input, Button, LabelUload, Error, ContainerInput } from './styles';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate'; // Icone do upload
 import ReactSelect from 'react-select';
 import { toast } from 'react-toastify';
@@ -25,11 +25,7 @@ function EditProduct() {
             name: yup.string().required('Digite o nome do produto'),
             price: yup.string().required('Digite o preço do produto'),
             category: yup.object().required('Escolha uma categoria'),
-            file: yup.mixed().test('required', 'Carregue uma imagem', value => {
-                return value?.length > 0
-            }).test('fileSize', 'Permitido arquivos de até 2mb', value => {
-                return value[0]?.size <= 200000
-            })
+            offer: yup.bool()
         })
         .required();
 
@@ -51,12 +47,13 @@ function EditProduct() {
         productDataFormData.append('price', data.price)
         productDataFormData.append('category_id', data.category.id)
         productDataFormData.append('file', data.file[0])
+        productDataFormData.append('offer', data.offer)
 
         // Enviando um feedback visual com o toast
-        await toast.promise( api.post('/products', productDataFormData), {
-            pending: 'Criando novo produto...',
-            success: 'Produto criado com sucesso',
-            error: 'Falha ao criar o produto'
+        await toast.promise(api.put(`/products/${product.id}`, productDataFormData), {
+            pending: 'Editando novo produto...',
+            success: 'Produto editado com sucesso',
+            error: 'Falha ao editar o produto'
         })
 
         setTimeout(() => {
@@ -86,13 +83,13 @@ function EditProduct() {
 
                 <div>
                     <Label>Nome</Label>
-                    <Input type='text' {...register("name")} />
+                    <Input type='text' {...register("name")} defaultValue={product.name} />
                     <Error>{errors?.name?.message}</Error>
                 </div>
 
                 <div>
                     <Label>Preço</Label>
-                    <Input type='number' {...register("price")} />
+                    <Input type='number' {...register("price")} defaultValue={product.price} />
                     <Error>{errors?.price?.message}</Error>
                 </div>
 
@@ -117,6 +114,7 @@ function EditProduct() {
                     <Controller
                         name='category'
                         control={control}
+                        defaultValue={product.category}
                         render={({ field }) => {
                             return (
                                 <ReactSelect
@@ -125,6 +123,7 @@ function EditProduct() {
                                     getOptionLabel={cat => cat.name}
                                     getOptionValue={cat => cat.id}
                                     placeholder='...Escolha a categoria'
+                                    defaultValue={product.category}
                                 />
                             )
                         }}>
@@ -132,7 +131,12 @@ function EditProduct() {
                     <Error>{errors?.category?.message}</Error>
                 </div>
 
-                <Button>Adicionar Produto</Button>
+                <ContainerInput>
+                    <input type="checkbox" {...register("offer")} defaultChecked={product.offer} />
+                    <Label>Produto em oferta ?</Label>
+                </ContainerInput>
+
+                <Button>Editar Produto</Button>
             </form>
         </Container>
     )
