@@ -667,4 +667,9 @@
 - E crio por último nosso component no index.jsx
     {pathname === paths.NewProduct && <NewProduct />}
 
+# 51º - Criando formulário de adição de produto
+- Para utilizarmos os requirementos de adicionar um produto lá da API vou usar um formulário da Biblioteca 
+
+- Criamos a estrutura, e estilizamos
+
 #
