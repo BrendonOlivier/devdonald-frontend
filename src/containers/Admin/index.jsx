@@ -1,5 +1,7 @@
-import { Container } from './styles'
 import Orders from './Orders'
+import ListProducts from './ListProducts'
+
+import { Container } from './styles'
 import { SideMenuAdmin } from '../../components'
 
 export function Admin() {
@@ -7,7 +9,8 @@ export function Admin() {
     return (
         <Container>
             <SideMenuAdmin />
-            <Orders />
+           {/* <Orders />*/}
+           <ListProducts />
         </Container>
     )
 }

@@ -47,4 +47,12 @@ export const router = createBrowserRouter([
             </PrivateRoute>
         ),
     },
+    {
+        path: "/listar-produtos",
+        element: (
+            <PrivateRoute isAdmin>
+                <Admin />
+            </PrivateRoute>
+        ),
+    },
 ]);

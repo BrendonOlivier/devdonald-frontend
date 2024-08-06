@@ -587,3 +587,20 @@
 
 - E passo para nosso link de Sair o 
     to='/login' onClick={logout}
+
+# 46º - Iniciando tela de listagem de produtos
+- Usaremos para criar nossa tela de listar os produtos, usando novamente o 'Material MUI' para usar uma tabela pronta
+    usaremos a : Tabela básica
+
+- Dentro da nossa page 'Admin' crio um componente chamado 
+    'ListProducts'
+
+- Depois importo nosso ListProducts no 'Admin' = 'indexjsx'
+
+- Crio uma rota para nossa listagem de produtos
+
+- Depois faço a importação da nosa tabela do MUI
+
+- E coloco a config da nossa tabela do MUI no return( )
+
+#
