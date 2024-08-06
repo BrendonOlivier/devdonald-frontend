@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { api } from '../../../services/api';
+import paths from '../../../constants/path'
 
 // Importações da nossa Tabela do MUI
 import Table from '@mui/material/Table';
@@ -18,6 +20,7 @@ import formatCurrency from '../../../utils/formatCurrency';
 
 function ListProducts() {
     const [products, setProducts] = useState(); // Guardando todos nossos produtos
+    const navigate = useNavigate();
 
     useEffect(() => {
         // Carregando as categorias
@@ -37,6 +40,12 @@ function ListProducts() {
         }
 
         return <CancelIcon style={{ color: '#CC1717' }} />
+    }
+
+    // Função para mandar todos os dados do produto que queremos editar
+    function editProduct(product) {
+
+        navigate(paths.EditProduct, { state: { product } }) // Redirecionando os dados para a Edição de produtos e mandando o produto
     }
 
     return (
@@ -66,7 +75,7 @@ function ListProducts() {
                                     <TableCell align='center'>{isOffer(product.offer)}</TableCell>
                                     <TableCell align='center'><Img src={product.url} alt='imagem-produto' /></TableCell>
                                     <TableCell align='center'>
-                                        <EditIcon />
+                                        <EditIcon onClick={() => editProduct(product)} />
                                     </TableCell>
                                 </TableRow>
                             ))}

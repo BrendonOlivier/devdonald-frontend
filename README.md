@@ -716,4 +716,18 @@
 
 - Faço toda essa configuração no meu 'onSubmit'
 
+# 56º - Criando tela de editar produtos
+- Vamos criar nossa tela de Editar produtos, crio em 'Admin' uma nova pasta
+    'EditProduct'
+
+- Crio a rota...
+
+- E feito toda rotação de criar uma rota nova teremos que mandar os dados ao clicar no Icone de edição os dados do produto que  
+    queremos editar, no 'ListProducts' usando uma função
+        editProduct
+
+- E colocamos um onClick no Ícone de editar
+
+- Depois no 'EditProduct' pegamos esses dados através do location
+
 #
