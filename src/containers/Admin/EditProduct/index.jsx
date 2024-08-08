@@ -17,8 +17,6 @@ function EditProduct() {
     const location = useLocation();
     const product = location.state?.product;  // Extraindo o produto do estado, se existir
 
-    console.log(product)
-
     // Validação os campos para o formulário
     const schema = yup
         .object({

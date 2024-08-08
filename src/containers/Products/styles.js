@@ -11,6 +11,7 @@ export const Container = styled.div`
 
 export const ProductImg = styled.img`
     width: 100%;
+    filter: brightness(200%);
 `
 
 export const CategoriesMenu = styled.div`
@@ -21,7 +22,7 @@ export const CategoriesMenu = styled.div`
 
     @media (max-width: 430px) {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
         gap: 10px;
         padding: 0 10px;
     }
@@ -47,5 +48,6 @@ export const ProductsContainer = styled.div`
 
     @media (max-width: 430px) {
         grid-template-columns: repeat(1, 1fr);
+        padding: 10px;
     }
 `

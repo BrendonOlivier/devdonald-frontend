@@ -65,6 +65,7 @@ export const RightContainer = styled.div`
 
     @media (max-width: 430px) {
         max-width: 100%;
+        border-top: 2px solid #9758a6;
     }
 `;
 

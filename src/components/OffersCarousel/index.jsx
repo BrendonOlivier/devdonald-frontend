@@ -3,7 +3,7 @@ import { api } from '../../services/api';
 import { useNavigate } from 'react-router-dom';
 
 import { Button } from '../Button'
-import { Container } from './styles';
+import { Container, ContainerCarrossel } from './styles';
 import { Swiper, SwiperSlide } from 'swiper/react'; // Config do carrossel
 import { useCart } from '../../hooks/CartContext';
 import formatCurrency from '../../utils/formatCurrency';
@@ -38,13 +38,15 @@ export function OffersCarousel() {
             >
                 {offers && offers.map((product, index) => (
                     <SwiperSlide key={index}>
-                        <img src={product.url} alt="foto do produto" />
-                        <h3>{product.name}</h3>
-                        <p>{product.formatPrice}</p>
-                        <Button onClick={() => {
-                            putProductsInCart(product)
-                            navigate('/carrinho')
-                        }}>Peça Agora</Button>
+                        <ContainerCarrossel>
+                            <img src={product.url} alt="foto do produto" />
+                            <h3>{product.name}</h3>
+                            <p>{product.formatPrice}</p>
+                            <Button onClick={() => {
+                                putProductsInCart(product)
+                                navigate('/carrinho')
+                            }}>Peça Agora</Button>
+                        </ContainerCarrossel>
                     </SwiperSlide>
                 ))}
             </Swiper>

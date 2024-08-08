@@ -74,7 +74,10 @@ export const CartProvider = ({ children }) => {
 
             // E atualizar os dados no LocalStorage
             await updateLocalStorage(newCart)
-        }
+        } else if (cartProducts[cartIndex].quantity === 1) {  
+            // Caso a quantidade seja 1, chama a função para deletar o produto  
+            await deleteProduct(productId);  
+        }  
     };
 
     // Caso eu inicie ou reinicie a aplicação pego os dados do localStorage

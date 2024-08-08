@@ -3,13 +3,10 @@ import { Home, Login, Register, Products, Cart, Admin } from '../containers';
 import PrivateRoute from './privateRoute';
 import paths from '../constants/path';
 
-import Orders from '../containers/Admin/Orders';  
-import ListProducts from '../containers/Admin/ListProducts';
-
 export const router = createBrowserRouter([
     {
         path: '/',
-        element: <Navigate to="/login" />, // Redireciona para a página de login
+        element: <Navigate to="/home" />, // Redireciona para a página de login
     },
     {
         path: '/login',
@@ -61,6 +58,14 @@ export const router = createBrowserRouter([
     },
     {
         path: paths.NewProduct,
+        element: (
+            <PrivateRoute isAdmin>
+                <Admin />
+            </PrivateRoute>
+        ),
+    },
+    {
+        path: paths.NewCategory,
         element: (
             <PrivateRoute isAdmin>
                 <Admin />

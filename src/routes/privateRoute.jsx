@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 import { Header } from '../components';
+import {Footer} from '../components'
 
 const PrivateRoute = ({ children, isAdmin }) => {
   const user = localStorage.getItem('devdonald:userData')
@@ -18,6 +19,7 @@ const PrivateRoute = ({ children, isAdmin }) => {
     <>
       {!isAdmin && <Header />}
       {children}
+      {!isAdmin && <Footer />}
     </>
   )
 };

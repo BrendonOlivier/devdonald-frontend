@@ -4,7 +4,7 @@ import formatCurrency from '../../utils/formatCurrency';
 import { api } from '../../services/api'
 import { toast } from 'react-toastify';
 
-import { Container } from './styles';
+import { ContainerResume, Container } from './styles';
 import { Button } from '../Button';
 
 export function CartResume() {
@@ -41,7 +41,7 @@ export function CartResume() {
     };
 
     return (
-        <div>
+        <ContainerResume>
             <Container>
                 <div className='container-top'>
                     <h2 className='title'>Resumo do pedido</h2>
@@ -52,11 +52,11 @@ export function CartResume() {
                 </div>
 
                 <div className='container-bot'>
-                    <p>Total</p>
+                    <p>Total:</p>
                     <p>{formatCurrency(finalPrice + deliveryTax)}</p>
                 </div>
             </Container>
-            <Button style={{ width: '100%', marginTop: 30 }} onClick={submitOrder}>Finalizar Pedido</Button>
-        </div>
+            <Button className='button' onClick={submitOrder}>Finalizar Pedido</Button>
+        </ContainerResume>
     )
 }

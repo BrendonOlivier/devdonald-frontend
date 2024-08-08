@@ -65,6 +65,10 @@ export const RightContainer = styled.div`
 
     @media (max-width: 430px) {
         max-width: 100%;
+        background: url('${BackgroundLogin}');
+        background-size: cover;
+        background-position: center;
+        border-top: 2px solid #9758a6;
     }
 `;
 

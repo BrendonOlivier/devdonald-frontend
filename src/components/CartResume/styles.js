@@ -1,14 +1,28 @@
 import styled from "styled-components";
-import Background from '../../assets/Background-Fundo.png';
+
+export const ContainerResume = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .button {
+        width: 100%;
+        margin-top: 30px;
+
+        @media (max-width: 430px) {
+            width: 95vw;
+        }
+    }
+`
 
 export const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-color: #E6E6FA;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     padding: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 
     .container-top {
         display: grid;
@@ -36,9 +50,9 @@ export const Container = styled.div`
         grid-area: delivery-tax;
     }
 
-    .delivery-tax-price {
-        grid-area: delivery-tax-price;
-    }
+        .delivery-tax-price {
+            grid-area: delivery-tax-price;
+        }
     }
 
     .container-bot {
@@ -47,9 +61,17 @@ export const Container = styled.div`
         justify-content: space-between;
         font-size: 24px;
         margin-top: 50px;
-    }
-`
 
-export const ContainerItems = styled.div`
-    
+        @media (max-width: 430px) {
+            width: 100%;
+            justify-content: center;
+            gap: 15px;
+        }
+    }
+
+    @media (max-width: 430px) {
+        width: 95vw;
+        align-items: center;
+        justify-content: center;
+    }
 `

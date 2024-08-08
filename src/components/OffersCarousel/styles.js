@@ -2,14 +2,9 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     width: 100vw;
-    max-width: 80%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 100px;
-    background-color: #fff;
+    padding: 0 20px;
+    overflow-x: hidden;
+    margin-bottom: 70px;
 
     .swiper-wrapper {
         display: flex;
@@ -19,7 +14,7 @@ export const Container = styled.div`
         width: 230px;
 
         @media (max-width: 430px) {
-            width: 220px;
+            width: 200px;
             border-radius: 15px;
         }
     }
@@ -39,5 +34,13 @@ export const Container = styled.div`
         text-align: center;
         margin-bottom: 10px;
     }
+`
 
+export const ContainerCarrossel = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 15px;
 `

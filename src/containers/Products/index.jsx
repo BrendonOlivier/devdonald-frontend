@@ -3,7 +3,7 @@ import { api } from '../../services/api';
 import formatCurrency from '../../utils/formatCurrency';
 import { useLocation } from 'react-router-dom';  
 
-import ProductLogo from '../../assets/Logo-Produtos.svg';
+import ProductLogo from '../../assets/Logo-Prod.png';
 import { Container, ProductImg, CategoriesMenu, CategoryButton, ProductsContainer } from './styles'
 import { CardProduct } from '../../components';
 

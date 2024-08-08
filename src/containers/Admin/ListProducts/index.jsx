@@ -56,8 +56,8 @@ function ListProducts() {
                         <TableRow>
                             <TableCell style={{ color: '#fff' }}>Nome</TableCell>
                             <TableCell style={{ color: '#fff' }}>Preço</TableCell>
-                            <TableCell align='center' style={{ color: '#fff' }}>Produto em Oferta</TableCell>
-                            <TableCell align='center' style={{ color: '#fff' }}>Imagem do Produto</TableCell>
+                            <TableCell className="offer-icon">Produto em Oferta</TableCell>
+                            <TableCell className="close">Produto</TableCell>
                             <TableCell style={{ color: '#fff' }}>Editar</TableCell>
                         </TableRow>
                     </TableHead>
@@ -73,7 +73,7 @@ function ListProducts() {
                                     </TableCell>
                                     <TableCell>{formatCurrency(product.price)}</TableCell>
                                     <TableCell align='center'>{isOffer(product.offer)}</TableCell>
-                                    <TableCell align='center'><Img src={product.url} alt='imagem-produto' /></TableCell>
+                                    <TableCell align='center' className="close"><Img src={product.url} alt='imagem-produto' /></TableCell>
                                     <TableCell align='center'>
                                         <EditIcon onClick={() => editProduct(product)} />
                                     </TableCell>

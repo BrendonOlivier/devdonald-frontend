@@ -87,9 +87,9 @@ function Orders() {
                     </LinkMenu>))}
             </Menu>
 
-            <TableContainer component={Paper}>
+            <TableContainer component={Paper} className='container'>
                 <Table aria-label="collapsible table">
-                    <TableHead>
+                    <TableHead >
                         <TableRow>
                             <TableCell />
                             <TableCell>Pedido</TableCell>

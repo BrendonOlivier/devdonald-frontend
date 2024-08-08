@@ -19,8 +19,8 @@ export function CartItems() {
                 <p></p>
                 <p>Itens</p>
                 <p>Preço</p>
-                <p style={{ paddingRight: 40 }}>Quantidade</p>
-                <p style={{ paddingLeft: 10 }}>Total</p>
+                <p>Quantidade</p>
+                <p>Total</p>
                 <p></p>
             </Header>
 
@@ -37,7 +37,7 @@ export function CartItems() {
                             <p>{product.quantity}</p>
                             <button onClick={() => increaseProducts(product.id)}>+</button>
                         </div>
-                        <p>{formatCurrency(product.quantity * product.price)}</p>
+                        <p className='price'>{formatCurrency(product.quantity * product.price)}</p>
                         <div className='lixo'>
                             <FcEmptyTrash size={30} onClick={() => handleDeleteProduct(product.id)} />
                         </div>

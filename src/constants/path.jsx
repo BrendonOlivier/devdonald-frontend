@@ -1,11 +1,12 @@
 // Arquivo que armazena nossos paths
 
 const paths = {
+    Home: '/home',
     Order: '/pedidos',
     Products: '/listar-produtos',
     EditProduct: '/editar-produto',
     NewProduct: '/novo-produtos',
-    EditProduct: '/editar-produto'
+    NewCategory: '/nova-categoria',
 }
 
 export default paths
