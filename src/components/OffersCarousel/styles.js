@@ -12,6 +12,8 @@ export const Container = styled.div`
 
     img {
         width: 230px;
+        height: 210px;
+        border-radius: 15px;
 
         @media (max-width: 430px) {
             width: 200px;
@@ -24,7 +26,9 @@ export const Container = styled.div`
         font-size: 20px;
         font-weight: bold;
         text-align: center;
-        margin: 10px 0;
+        margin: 5px 0;
+        border-bottom: 2px solid #9758a6;
+        padding-bottom: 5px;
     }
 
     p {
@@ -42,5 +46,9 @@ export const ContainerCarrossel = styled.div`
     justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #fff;
     gap: 15px;
+    border: 2px solid #9758a6;
 `

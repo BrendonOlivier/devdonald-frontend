@@ -2,7 +2,6 @@ import { Container, LinksSocial, Info } from './styles';
 import { FaWhatsapp } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { SiIfood } from "react-icons/si";
-import { FaLinkedin } from "react-icons/fa";
 import LogoFooter from '../../assets/Logo-Footer.png';
 
 export function Footer() {
@@ -29,7 +28,7 @@ export function Footer() {
                     <p>contato@devdonald.com | (19) 9 9777-7777</p>
                 </div>
 
-                <p className='copyright'>Site criado por <span><FaLinkedin />Brendon Olivier</span></p>
+                <p className='copyright'>Site criado por <span>Brendon Olivier</span></p>
             </Info>
         </Container>
     )

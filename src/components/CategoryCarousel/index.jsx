@@ -26,7 +26,7 @@ export function CategoryCarousel() {
 
             <Swiper
                 grabCursor={true}
-                spaceBetween={10}
+                spaceBetween={20}
                 slidesPerView={'auto'}
                 className='swiper'
             >

@@ -5,6 +5,7 @@ import { useForm, Controller } from "react-hook-form";
 import { useUser } from '../../../hooks/UserContext'
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import paths from '../../../constants/path'
 
 // CONFIG DA TABELA DO MUI
 import Paper from '@mui/material/Paper'
@@ -24,7 +25,6 @@ import { toast } from 'react-toastify';
 function NewCategory() {
     const [fileName, setFileName] = useState(null); // Estado do file de upload de imagem
     const [categories, setCategories] = useState([]);
-    const [loading, setLoading] = useState(true);
     const { logout } = useUser();
     const navigate = useNavigate();
 
@@ -93,10 +93,9 @@ function NewCategory() {
 
                 setTimeout(() => {
                     setCategories(data)
-                    setLoading(false)
                 }, 1000)
             } catch (err) {
-                setLoading(false)
+                toast.error('Erro na busca')
             }
         }
 
@@ -105,7 +104,7 @@ function NewCategory() {
 
     // Função para levar o usuário para edição de categorias
     function editCategory(category) {
-        navigate(paths.EditCategory, { category })
+        navigate(paths.EditCategory, { state: { category } })
     }
 
     return (

@@ -80,4 +80,12 @@ export const router = createBrowserRouter([
             </PrivateRoute>
         ),
     },
+    {
+        path: paths.EditCategory,
+        element: (
+            <PrivateRoute isAdmin>
+                <Admin />
+            </PrivateRoute>
+        ),
+    },
 ]);

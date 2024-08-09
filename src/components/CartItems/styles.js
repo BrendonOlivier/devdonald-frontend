@@ -122,7 +122,6 @@ export const ContainerImg = styled.div`
     align-items: center;
     justify-content: center;
     border-radius: 40px;
-    background: #9758a6;
 
     img {
         border-radius: 10px;

@@ -17,8 +17,11 @@ export const Container = styled.div`
 `
 
 export const ContainerImg = styled.div`
-    border-radius: 20px;
-    background: #9758a6;
+    img {
+        width: 200px;
+        height: 170px;
+        border-radius: 15px;
+    }
 `
 
 export const ContainerInfo = styled.div`
@@ -33,6 +36,8 @@ export const ProductName = styled.p`
     font-weight: bold;
     line-height: 16px;
     color: #000000;
+    border-bottom: 2px solid #9758a6;
+    padding-bottom: 5px;
 `
 
 export const ProductPrice = styled.p`

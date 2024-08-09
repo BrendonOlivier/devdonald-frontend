@@ -13,6 +13,14 @@ export const Container = styled.div`
         display: flex;
         flex-direction: column;
         gap: 25px;
+
+        h2 {
+            font-weight: 500;
+            color: #9758a6;
+            text-transform: uppercase;
+            border-bottom: 2px solid #fff;
+            padding-bottom: 5px;
+        }
     }
 
     @media screen and (max-width: 480px) {

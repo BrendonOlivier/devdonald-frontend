@@ -6,6 +6,7 @@ import paths from '../../constants/path';
 import NewProduct from './NewProduct';
 import NewCategory from './NewCategory';
 import EditProduct from './EditProduct';
+import EditCategory from './EditCategory';
 
 import { Container, ContainerItems } from './styles';
 import { SideMenuAdmin } from '../../components';
@@ -25,6 +26,7 @@ export function Admin() {
                 {pathname === paths.NewProduct && <NewProduct />}
                 {pathname === paths.NewCategory && <NewCategory />}
                 {pathname === paths.EditProduct && <EditProduct />}
+                {pathname === paths.EditCategory && <EditCategory />}
             </ContainerItems>
         </Container>
     )

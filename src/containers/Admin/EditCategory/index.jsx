@@ -1,36 +1,40 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { api } from '../../../services/api';
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import { Container, Label, Input, Button, LabelUload, Error, ContainerInput } from './styles';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate'; // Icone do upload
-import ReactSelect from 'react-select';
 import { toast } from 'react-toastify';
 
-function EditProduct() {
+function EditCategory() {
     const [fileName, setFileName] = useState(null); // Estado do file de upload de imagem
-    const [categories, setCategories] = useState([]);
     const navigate = useNavigate();
+    const [categories, setCategories] = useState([]);
     const location = useLocation();
-    const product = location.state?.product;  // Extraindo o produto do estado, se existir
+    const category = location.state?.category;  // Extraindo o produto do estado, se existir
+
+    if (!category) {  
+        return toast.error('Categoria não encontrada, tente novamente') // Ou redirecione para outra página  
+    } 
 
     // Validação os campos para o formulário
     const schema = yup
         .object({
-            name: yup.string().required('Digite o nome do produto'),
-            price: yup.string().required('Digite o preço do produto'),
-            category: yup.object().required('Escolha uma categoria'),
-            offer: yup.bool()
+            name: yup.string().required('Digite o nome da categoria'),
+            file: yup.mixed().test('required', 'Carregue uma imagem', value => {
+                return value?.length > 0
+            }).test('type', 'Carregue apenas arquivos de extensões png, jpg, jpeg.', value => {
+                return value[0]?.type === 'image/jpeg' || value[0]?.type === 'image/png'
+            })
         })
         .required();
 
     const {
         register,
         handleSubmit,
-        control,
         formState: { errors },
     } = useForm({
         resolver: yupResolver(schema),
@@ -38,57 +42,32 @@ function EditProduct() {
 
     // Mandando os dados para a API no formato 'FormData'
     const onSubmit = async data => {
-        const productDataFormData = new FormData()
+        const categoryDataFormData = new FormData()
 
         // Montando a estrutura o FormData usando o 'append'
-        productDataFormData.append('name', data.name)
-        productDataFormData.append('price', data.price)
-        productDataFormData.append('category_id', data.category.id)
-        productDataFormData.append('file', data.file[0])
-        productDataFormData.append('offer', data.offer)
+        categoryDataFormData.append('name', data.name)
+        categoryDataFormData.append('file', data.file[0])
 
         // Enviando um feedback visual com o toast
-        await toast.promise(api.put(`/products/${product.id}`, productDataFormData), {
-            pending: 'Editando novo produto...',
-            success: 'Produto editado com sucesso',
-            error: 'Falha ao editar o produto'
+        await toast.promise(api.put(`/categories/${category.id}`, categoryDataFormData), {
+            pending: 'Editando nova categoria...',
+            success: 'Categoria editada com sucesso',
+            error: 'Falha ao editar a categoria'
         })
 
         setTimeout(() => {
-            navigate('/listar-produtos')
+            navigate('/nova-categoria')
         }, 1200);
-
-        // Enviando para o Back-end
-
-
-        console.log(productDataFormData)
     }
-
-    useEffect(() => {
-        // Carregando as categorias
-        async function loadCategories() {
-            const { data } = await api.get('/categories')
-
-            setCategories(data)
-        }
-
-        loadCategories()
-    }, [])
 
     return (
         <Container>
             <form noValidate onSubmit={handleSubmit(onSubmit)}>
-
+                <h2>Editar Categoria</h2>
                 <div>
                     <Label>Nome</Label>
-                    <Input type='text' {...register("name")} defaultValue={product.name} />
+                    <Input type='text' {...register("name")} defaultValue={category.name} />
                     <Error>{errors?.name?.message}</Error>
-                </div>
-
-                <div>
-                    <Label>Preço</Label>
-                    <Input type='number' {...register("price")} defaultValue={product.price} />
-                    <Error>{errors?.price?.message}</Error>
                 </div>
 
                 <div>
@@ -108,36 +87,10 @@ function EditProduct() {
                     <Error>{errors?.file?.message}</Error>
                 </div>
 
-                <div>
-                    <Controller
-                        name='category'
-                        control={control}
-                        defaultValue={product.category}
-                        render={({ field }) => {
-                            return (
-                                <ReactSelect
-                                    {...field}
-                                    options={categories}
-                                    getOptionLabel={cat => cat.name}
-                                    getOptionValue={cat => cat.id}
-                                    placeholder='...Escolha a categoria'
-                                    defaultValue={product.category}
-                                />
-                            )
-                        }}>
-                    </Controller>
-                    <Error>{errors?.category?.message}</Error>
-                </div>
-
-                <ContainerInput>
-                    <input type="checkbox" {...register("offer")} defaultChecked={product.offer} />
-                    <Label>Produto em oferta ?</Label>
-                </ContainerInput>
-
-                <Button>Editar Produto</Button>
+                <Button>Editar Categoria</Button>
             </form>
         </Container>
     )
 }
 
-export default EditProduct
+export default EditCategory

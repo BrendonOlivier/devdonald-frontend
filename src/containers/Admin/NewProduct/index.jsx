@@ -79,7 +79,7 @@ function NewProduct() {
     return (
         <Container>
             <form noValidate onSubmit={handleSubmit(onSubmit)}>
-
+                <h2>Criar Produto</h2>
                 <div>
                     <Label>Nome</Label>
                     <Input type='text' {...register("name")} />
