@@ -14,7 +14,7 @@ export function CategoryCarousel() {
 
                 setCategories(data) // Gravando as categorias pro nosso carrossel
             } catch (error) {
-                console.error("Erro ao carregar categorias:", error);
+                return 
             }
         }
 

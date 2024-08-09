@@ -57,11 +57,6 @@ function EditProduct() {
         setTimeout(() => {
             navigate('/listar-produtos')
         }, 1200);
-
-        // Enviando para o Back-end
-
-
-        console.log(productDataFormData)
     }
 
     useEffect(() => {

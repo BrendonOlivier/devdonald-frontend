@@ -35,7 +35,7 @@ function Row({ row, setOrders, orders }) {
             })
             setOrders(newOrdes)
         } catch (err) {
-            console.error(err)
+            return
         } finally {
             setIsLoading(false) // E tiramos o Loading caso dê tudo certo
         }
